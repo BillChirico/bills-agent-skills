@@ -29,6 +29,11 @@ bills-claude-skills/
 │   │   └── resolve-pr.md
 │   └── references/
 │       └── github_api_reference.md
+├── manage-prs/
+│   ├── README.md
+│   ├── SKILL.md
+│   ├── agents/
+│   └── scripts/
 ├── volvox/
 │   ├── README.md
 │   ├── SKILL.md
@@ -49,7 +54,7 @@ Each skill follows this pattern:
 
 ### Prerequisites
 
-The `github-pr-resolver` skill requires the GitHub CLI:
+The `github-pr-resolver` and `manage-prs` skills require the GitHub CLI:
 
 ```bash
 # Verify gh CLI is installed and authenticated

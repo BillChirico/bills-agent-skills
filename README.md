@@ -55,6 +55,14 @@ Resolves all PR review comments and ensures CI passes.
 
 ---
 
+### Manage PRs
+
+Maintains GitHub PRs end-to-end: review comments, requested changes, merge conflicts, and CI failures.
+
+[View documentation](manage-prs/README.md)
+
+---
+
 ### Volvox Brand
 
 Applies Volvox LLC's official brand identity, colors, typography, and voice.
@@ -66,7 +74,7 @@ Applies Volvox LLC's official brand identity, colors, typography, and voice.
 ## Prerequisites
 
 - [Claude Code CLI](https://claude.ai/code)
-- [GitHub CLI](https://cli.github.com/) with `repo` scope for `github-pr-resolver`
+- [GitHub CLI](https://cli.github.com/) with `repo` scope for `github-pr-resolver` and `manage-prs`
 - Python 3 and Pillow for `app-store-image-enhancer`
 
 ## License

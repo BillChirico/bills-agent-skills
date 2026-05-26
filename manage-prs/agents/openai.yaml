@@ -1,0 +1,4 @@
+interface:
+  display_name: "Manage PRs"
+  short_description: "Fix PR comments and CI failures"
+  default_prompt: "Use $manage-prs to inspect this pull request, fix review comments and failing checks, then resolve completed review threads."
