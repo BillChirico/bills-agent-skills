@@ -226,6 +226,7 @@ After all threads are done:
 - Messages from teammates are delivered to you automatically
 
 **WRONG (sequential - do NOT do this):**
+
 ```
 Message 1: Task(team_name=...) for file A
 Message 2: Task(team_name=...) for file B  <- waits for A to finish first
@@ -233,6 +234,7 @@ Message 3: Task(team_name=...) for file C  <- waits for B to finish first
 ```
 
 **CORRECT (parallel - do THIS):**
+
 ```
 Message 1: Task for file A + Task for file B + Task for file C  <- all start concurrently
 ```

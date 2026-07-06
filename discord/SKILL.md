@@ -369,7 +369,7 @@ See [references/syntax-highlighting.md](references/syntax-highlighting.md) for t
 
 Since this skill's default output (see "Output Presentation" above) is a copy-paste-ready message for a person to post themselves, **default to bare or auto-linked URLs, not masked links**, unless "Before You Draft" confirmed the message is going out through a bot or webhook. When multiple links need attribution in a bare-URL context, write it out rather than masking, e.g. `Built by **Name** under **Company** (https://company.com) → https://product.com`. Bolding the name/label this way is a good default — it's the same bolded-lead-in pattern recommended above — but it isn't mandatory; plain text is equally correct when the surrounding message or template doesn't use bold elsewhere. Either way, the URL itself stays unformatted so it remains a clean clickable link.
 
-If the message *is* bot/webhook-authored and masked links are safe to use, still keep emoji out of the label — Discord explicitly disallows emoji inside a masked link's clickable text (`[🎉 Patch Notes](url)` won't mask; `🎉 [Patch Notes](url)` will).
+If the message _is_ bot/webhook-authored and masked links are safe to use, still keep emoji out of the label — Discord explicitly disallows emoji inside a masked link's clickable text (`[🎉 Patch Notes](url)` won't mask; `🎉 [Patch Notes](url)` will).
 
 ### Auto-linking
 
