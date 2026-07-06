@@ -1,11 +1,60 @@
 ---
 name: discord-markdown
-description: Format text for Discord using markdown syntax. Use when composing Discord messages, bot responses, embed descriptions, forum posts, webhook payloads, or any content destined for Discord's chat interface. Triggers on requests mentioning Discord formatting, Discord messages, Discord bots, Discord embeds, or when the user needs text styled for Discord's rendering engine. Covers bold, italic, underline, strikethrough, spoilers, code blocks with syntax highlighting, headers, subtext, lists, block quotes, masked links, timestamps, and mentions. Always presents Discord-ready messages inside fenced code blocks so the user can copy-paste them directly into Discord with all markdown formatting preserved.
+description: Format text for Discord using markdown syntax, and draft well-structured Discord announcements. Use when composing Discord messages, bot responses, embed descriptions, forum posts, webhook payloads, announcements, patch notes, or any content destined for Discord's chat interface. Triggers on requests mentioning Discord formatting, Discord messages, Discord bots, Discord embeds, Discord announcements, or when the user needs text styled or structured for Discord's rendering engine — including requests to "turn this into a Discord post," add/reduce emoji, or clean up formatting for a specific channel or thread. Covers bold, italic, underline, strikethrough, spoilers, code blocks with syntax highlighting, headers, subtext, lists, block quotes, masked links, timestamps, mentions, plus structural/tone guidance for announcements (section skeleton, bolded lead-ins, calibrated emoji density) and the pre-draft question that determines link style (masked vs. bare URL). Always presents Discord-ready messages inside fenced code blocks so the user can copy-paste them directly into Discord with all markdown formatting preserved.
 ---
 
 # Discord Markdown Formatting
 
 Format text for Discord's chat rendering engine. Discord uses a modified subset of Markdown with some unique additions (spoilers, timestamps, subtext, guild navigation).
+
+## Before You Draft
+
+Two questions shape everything below — resolve them before writing instead of guessing:
+
+1. **Who's posting this, and how?** A person typing/pasting it into a channel themselves, or a bot/webhook (an announcement bot, an integration, a webhook payload)? This is the single most important fact for link formatting — see "Masked Links" under Links below. If it isn't stated, default to assuming a person is posting it manually: that's both the more common case and the one where masked links silently fail, so it's the safer default to assume.
+2. **What's the actual content?** Pull real features, changes, or details from the user, a changelog, or a repo rather than inventing filler. If research tools are available (reading a CHANGELOG, a repo, docs), use them instead of asking the user to dictate every bullet.
+
+## Composing Announcements — Structure & Tone
+
+Announcements get skimmed, not read start-to-finish — most people scan headers and bold text before deciding whether a bullet is worth reading. Structure for that:
+
+```
+# [emoji] Title
+
+**One-line hook** — what this is, in a sentence.
+
+Attribution / byline, if relevant (see Links below for how to format any URLs in it).
+
+## [emoji] Section header (Features, What's New, Details, etc.)
+
+### [emoji] Subsection, if the content has natural categories
+- **Bolded lead-in** — supporting detail
+- **Bolded lead-in** — supporting detail
+
+## [emoji] Upcoming / Next Steps, if there's a roadmap angle
+- What's planned, in the same bolded-lead-in style
+
+## [emoji] Contact / Support, if there's somewhere to follow up
+Plain-language pointer + the actual link(s)
+
+_Closing tagline, italicized_
+```
+
+Not every announcement needs every section — a one-off event invite doesn't need "Upcoming." Adapt the skeleton to what's actually being announced instead of padding sections for symmetry. `references/templates.md` has ready-made structures for specific announcement types (feature release, maintenance notice, launch, incident report, etc.) — check there first before freehand drafting.
+
+### Bolded lead-ins, not walls of text
+
+Inside bullets, bold the key term or claim, then let the rest of the sentence explain it: `**Auto-mail loot** — attaches up to 12 stacks per run and mails it to your alt.` This lets someone scanning catch the gist from the bold words alone, and read the detail only if they care. Avoid long unstructured prose paragraphs inside a features section.
+
+### Emoji density
+
+The right density, refined against real feedback rather than guessed: **emoji on the title and on every section/subsection header, plus one emoji on a genuine standout bullet per section — not on every bullet.**
+
+- Zero emoji reads flat and corporate for a community announcement.
+- An emoji on every bullet reads noisy and undermines which item is actually the highlight — if everything is emphasized, nothing is.
+- Headers get emoji because that's where visual navigation happens; 1 (occasionally 2) bullets per section get an emoji to flag the standout item — the rest rely on bold text alone.
+
+When picking which bullet gets the emoji, pick the one that's most novel, most impressive, or most likely to make someone go "oh nice" — not just the first one in the list.
 
 ## Output Presentation — CRITICAL
 
@@ -87,6 +136,7 @@ Format the summary as a compact table directly below the code block:
 - For code blocks, list each language, e.g. `javascript, bash` — or `(no lang)` if the block has no language identifier
 - If characters exceed 80% of the limit, add a ⚠️ warning
 - If characters exceed the limit, add a 🚫 and suggest splitting the message
+- For URLs, flag it if the message contains masked links `[text](url)` while the delivery context is a regular user message — those render as literal text, not clickable links (see "Masked Links" under Links)
 
 ### Example Interaction
 
@@ -315,7 +365,11 @@ See [references/syntax-highlighting.md](references/syntax-highlighting.md) for t
 [Click here](https://example.com)
 ```
 
-**Note:** Masked links work in embeds and some contexts, but regular chat may show a preview. Discord may suppress masked links from bots in certain conditions.
+**Masked links only render as clickable in bot messages, webhook messages, and embeds — never in a normal message a person types or pastes.** Discord's own engineering team has confirmed on the public API-docs issue tracker that masked-link rendering has never been rolled out for general user messages: send `[label](url)` in a regular chat message and Discord shows the literal brackets, label, and URL as plain text, not a link.
+
+Since this skill's default output (see "Output Presentation" above) is a copy-paste-ready message for a person to post themselves, **default to bare or auto-linked URLs, not masked links**, unless "Before You Draft" confirmed the message is going out through a bot or webhook. When multiple links need attribution in a bare-URL context, write it out rather than masking: `Built by **Name** under **Company** (https://company.com) → https://product.com`.
+
+If the message *is* bot/webhook-authored and masked links are safe to use, still keep emoji out of the label — Discord explicitly disallows emoji inside a masked link's clickable text (`[🎉 Patch Notes](url)` won't mask; `🎉 [Patch Notes](url)` will).
 
 ### Auto-linking
 
@@ -381,15 +435,16 @@ That was <t:1770537600:R>
 
 ## Discord-Specific Gotchas
 
-1. **No nested block quotes** — Discord does not support `>>` for nested quotes
-2. **Headers need line start** — `#` must be the first character on the line (not inline)
-3. **Underline is NOT standard Markdown** — `__text__` underlines in Discord but bolds in standard Markdown
-4. **Spoilers are Discord-only** — `||text||` has no equivalent in standard Markdown
-5. **Lists need a blank line** — Start lists after a blank line or they may not render
-6. **Embed markdown differs** — Some formatting behaves differently in embeds vs chat messages
-7. **2000 character limit** — Standard messages max at 2,000 characters; nitro users get 4,000
-8. **Embed description limit** — Embed descriptions max at 4,096 characters
-9. **Code block language names are case-insensitive** — `JS`, `js`, and `JavaScript` all work
+1. **Masked links don't work in normal messages** — `[label](url)` only renders as clickable in bot/webhook/embed content; in a regular message it shows as literal text. Default to bare URLs unless the message is bot/webhook-authored (see "Masked Links" under Links)
+2. **No nested block quotes** — Discord does not support `>>` for nested quotes
+3. **Headers need line start** — `#` must be the first character on the line (not inline)
+4. **Underline is NOT standard Markdown** — `__text__` underlines in Discord but bolds in standard Markdown
+5. **Spoilers are Discord-only** — `||text||` has no equivalent in standard Markdown
+6. **Lists need a blank line** — Start lists after a blank line or they may not render
+7. **Embed markdown differs** — Some formatting behaves differently in embeds vs chat messages
+8. **2000 character limit** — Standard messages max at 2,000 characters; nitro users get 4,000
+9. **Embed description limit** — Embed descriptions max at 4,096 characters
+10. **Code block language names are case-insensitive** — `JS`, `js`, and `JavaScript` all work
 
 ## Formatting for Different Contexts
 
@@ -397,7 +452,7 @@ That was <t:1770537600:R>
 
 ### Chat Messages
 
-Full markdown support. 2,000 character limit (4,000 with Nitro).
+Full markdown support **except masked links** — `[label](url)` renders as literal text here, not a clickable link. Use bare or auto-linked URLs instead. 2,000 character limit (4,000 with Nitro).
 
 ### Embed Descriptions
 
@@ -409,7 +464,7 @@ Limited markdown. 1,024 character limit per field.
 
 ### Bot Messages / Webhooks
 
-Full markdown support. Same as chat messages. Use embeds for richer formatting.
+Full markdown support, **and masked links work correctly here** (unlike regular chat messages) — this is the one context where `[label](url)` is safe to use. Use embeds for richer formatting.
 
 ### Forum Posts
 

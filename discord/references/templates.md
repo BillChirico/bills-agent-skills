@@ -757,18 +757,18 @@ optional code block or example
 
 ### Getting Started
 
-- [Resource Name](URL) — [brief description]
-- [Resource Name](URL) — [brief description]
+- **[Resource Name]** — URL — [brief description]
+- **[Resource Name]** — URL — [brief description]
 
 ### Intermediate
 
-- [Resource Name](URL) — [brief description]
-- [Resource Name](URL) — [brief description]
+- **[Resource Name]** — URL — [brief description]
+- **[Resource Name]** — URL — [brief description]
 
 ### Advanced
 
-- [Resource Name](URL) — [brief description]
-- [Resource Name](URL) — [brief description]
+- **[Resource Name]** — URL — [brief description]
+- **[Resource Name]** — URL — [brief description]
 
 ### Tools
 
@@ -897,12 +897,12 @@ Welcome! Complete these steps to get set up:
 
 Stay in the loop across all platforms:
 
-- 🐦 **X/Twitter:** [@handle](https://x.com/handle)
-- 📸 **Instagram:** [@handle](https://instagram.com/handle)
-- 📺 **YouTube:** [Channel Name](https://youtube.com/@handle)
-- 💼 **LinkedIn:** [Page Name](https://linkedin.com/company/name)
-- 🌐 **Website:** [domain.com](https://domain.com)
-- 📧 **Newsletter:** [Subscribe](https://link)
+- 🐦 **X/Twitter:** https://x.com/handle
+- 📸 **Instagram:** https://instagram.com/handle
+- 📺 **YouTube:** https://youtube.com/@handle
+- 💼 **LinkedIn:** https://linkedin.com/company/name
+- 🌐 **Website:** https://domain.com
+- 📧 **Newsletter:** https://link
 
 > 🔔 Turn on notifications so you never miss an update!
 
