@@ -757,18 +757,18 @@ optional code block or example
 
 ### Getting Started
 
-- **[Resource Name]** — URL — [brief description]
-- **[Resource Name]** — URL — [brief description]
+- [Resource Name] — URL — [brief description]
+- [Resource Name] — URL — [brief description]
 
 ### Intermediate
 
-- **[Resource Name]** — URL — [brief description]
-- **[Resource Name]** — URL — [brief description]
+- [Resource Name] — URL — [brief description]
+- [Resource Name] — URL — [brief description]
 
 ### Advanced
 
-- **[Resource Name]** — URL — [brief description]
-- **[Resource Name]** — URL — [brief description]
+- [Resource Name] — URL — [brief description]
+- [Resource Name] — URL — [brief description]
 
 ### Tools
 
