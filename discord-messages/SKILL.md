@@ -11,8 +11,8 @@ Format text for Discord's chat rendering engine. Discord uses a modified subset 
 
 Two questions shape everything below — resolve them before writing instead of guessing:
 
-1. **Who's posting this, and how?** A person typing/pasting it into a channel themselves, or a bot/webhook (an announcement bot, an integration, a webhook payload)? This is the single most important fact for link formatting — see "Masked Links" under Links below. If it isn't stated, default to assuming a person is posting it manually: that's both the more common case and the one where masked links silently fail, so it's the safer default to assume.
-2. **What's the actual content?** Pull real features, changes, or details from the user, a changelog, or a repo rather than inventing filler. If research tools are available (reading a CHANGELOG, a repo, docs), use them instead of asking the user to dictate every bullet.
+1. **Who's posting this, and how?** A person typing/pasting it into a channel themselves, or a bot/webhook (an announcement bot, an integration, a webhook payload)? This determines the correct link formatting — see "Masked Links" under Links below. If the user doesn't specify, default to assuming a person is posting it manually: that's both the more common case and the one where masked links silently fail, so it's the safer default to assume.
+2. **What's the actual content?** Pull real features, changes, or details from the user, a changelog, or a repo rather than inventing filler. If you have tools that can read files or URLs, use them to pull real content instead of asking the user to dictate every bullet.
 
 ## Composing Announcements — Structure & Tone
 
@@ -48,11 +48,11 @@ Inside bullets, bold the key term or claim, then let the rest of the sentence ex
 
 ### Emoji density
 
-The right density, refined against real feedback rather than guessed: **emoji on the title and on every section/subsection header, plus one emoji on a genuine standout bullet per section — not on every bullet.**
+The right density, refined against real feedback rather than guessed: **emoji on the title and every section/subsection header, plus one emoji on a genuine standout bullet per section — never on every bullet, and skip it entirely if nothing in the section actually stands out.**
 
 - Zero emoji reads flat and corporate for a community announcement.
 - An emoji on every bullet reads noisy and undermines which item is actually the highlight — if everything is emphasized, nothing is.
-- Headers get emoji because that's where visual navigation happens; 1 (occasionally 2) bullets per section get an emoji to flag the standout item — the rest rely on bold text alone.
+- Headers get emoji because that's where visual navigation happens; a standout bullet gets one emoji to flag it — the rest rely on bold text alone.
 
 When picking which bullet gets the emoji, pick the one that's most novel, most impressive, or most likely to make someone go "oh nice" — not just the first one in the list.
 
@@ -64,9 +64,11 @@ When composing a Discord message for the user, **always present the final messag
 
 ### How to Present Discord Messages
 
-Always wrap the final copy-paste-ready message in a fenced code block with the `markdown` language tag:
+Always wrap the final copy-paste-ready message in a fenced code block with the `markdown` language tag.
 
-````
+**Backtick fence escalation rule:** The outer fence must use N+1 backticks, where N is the length of the longest backtick fence appearing inside the Discord message. Default is triple backticks; if the message contains triple-backtick code blocks, use four backticks; if it contains four-backtick fences, use five. This preserves all inner backticks when the user copies the raw code block into Discord.
+
+**No inner code blocks** — use triple backticks:
 ```markdown
 # 🚀 Announcement
 
@@ -76,16 +78,8 @@ Always wrap the final copy-paste-ready message in a fenced code block with the `
 
 -# Subtext footer
 ```
-````
 
-### Rules
-
-1. **Always use a fenced code block** — Triple backticks with `markdown` language identifier
-2. **The ENTIRE message goes in ONE block** — Everything the user will paste into Discord lives inside a single fenced code block. No part of the Discord message should ever appear outside the block as rendered markdown
-3. **Explain outside the block** — Put any notes, options, or context _before_ or _after_ the code block, never inside it
-4. **Handle nested code blocks** — If the Discord message itself contains code blocks, use four backticks (``````) as the outer fence so the inner triple backticks are preserved. The user copies everything between the outer fence — the inner triple backticks are part of the Discord message:
-
-`````
+**Inner triple-backtick code blocks** — use four backticks:
 ````markdown
 Here's some code:
 
@@ -95,26 +89,30 @@ console.log("hello");
 
 Pretty cool right?
 ````
-`````
 
-5. **Multiple messages = multiple blocks** — If providing alternatives or a multi-message sequence, use a separate code block for each with a label above it
-6. **Message metadata summary** — Always display a metadata summary table immediately after every Discord message code block (see below)
-7. **Templates too** — When presenting templates from the reference files, they should also be in copyable code blocks following these same rules
-8. **Never partially render** — Do NOT put headers, bold text, code snippets, or any other Discord-formatted content outside the code block. If it's part of the Discord message, it goes inside the block. The user should never have to assemble a message from rendered markdown and code blocks
+### Rules
+
+1. **Always use a fenced code block** — Apply the backtick fence escalation rule above to determine the correct fence depth
+2. **The ENTIRE message goes in ONE block** — Everything the user will paste into Discord lives inside a single fenced code block. No part of the Discord message should ever appear outside the block as rendered markdown
+3. **Explain outside the block** — Put any notes, options, or context _before_ or _after_ the code block, never inside it
+4. **Multiple messages = multiple blocks** — If providing alternatives or a multi-message sequence, use a separate code block for each with a label above it
+5. **Message metadata summary** — Always display a metadata summary table immediately after every Discord message code block (see below)
+6. **Templates too** — When presenting templates from the reference files, they should also be in copyable code blocks following these same rules
+7. **Never partially render** — Do NOT put headers, bold text, code snippets, or any other Discord-formatted content outside the code block. If it's part of the Discord message, it goes inside the block. The user should never have to assemble a message from rendered markdown and code blocks
 
 ### Message Metadata Summary
 
 After **every** Discord message code block, include a summary table with the following stats:
 
-| Stat                 | Description                                       | How to Count                                                                                                            |
-| -------------------- | ------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| **Characters**       | Total character count of the message              | Count all characters inside the code block. Show as `X / 2,000` for chat messages or `X / 4,096` for embed descriptions |
-| **Sections**         | Number of header-delimited sections               | Count all `#`, `##`, `###` headers. If no headers, show `0`                                                             |
-| **User Mentions**    | Users mentioned via `<@USER_ID>` or `<@!USER_ID>` | Count unique `<@...>` patterns (not role mentions)                                                                      |
-| **Role Mentions**    | Roles mentioned via `<@&ROLE_ID>`                 | Count unique `<@&...>` patterns. Include `@everyone` and `@here`                                                        |
-| **Channel Mentions** | Channels linked via `<#CHANNEL_ID>` or `<id:...>` | Count unique `<#...>` and `<id:...>` patterns                                                                           |
-| **URLs**             | Links in the message                              | Count raw URLs and masked links `[text](url)`                                                                           |
-| **Code Blocks**      | Code blocks with language info                    | If the message contains fenced code blocks, list languages used (e.g., `javascript`, `bash`). Show `—` if none          |
+| Stat                 | Description                                       | How to Count                                                                                                                                                                                                                                                  |
+| -------------------- | ------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Characters**       | Total character count of the message              | Count all characters inside the code block. Show as `X / limit`, using the limit for the message's actual context — see "Formatting for Different Contexts" below (2,000 for standard chat/bot/webhook messages, 4,096 for embeds and forum post bodies, 100 for forum titles). Only use the 4,000 Nitro limit if the user has said they have Nitro. |
+| **Sections**         | Number of header-delimited sections               | Count all `#`, `##`, `###` headers. If no headers, show `0`                                                                                                                                                                                                   |
+| **User Mentions**    | Users mentioned via `<@USER_ID>` or `<@!USER_ID>` | Count unique `<@...>` patterns (not role mentions)                                                                                                                                                                                                            |
+| **Role Mentions**    | Roles mentioned via `<@&ROLE_ID>`                 | Count unique `<@&...>` patterns. Include `@everyone` and `@here`                                                                                                                                                                                              |
+| **Channel Mentions** | Channels linked via `<#CHANNEL_ID>` or `<id:...>` | Count unique `<#...>` and `<id:...>` patterns                                                                                                                                                                                                                 |
+| **URLs**             | Links in the message                              | Count raw URLs and masked links `[text](url)`                                                                                                                                                                                                                 |
+| **Code Blocks**      | Code blocks with language info                    | If the message contains fenced code blocks, list languages used (e.g., `javascript`, `bash`). Show `—` if none                                                                                                                                                |
 
 Format the summary as a compact table directly below the code block:
 
@@ -196,8 +194,6 @@ Drop questions in <#sdk-support> — <@core-team> is standing by. 🫡
 | URLs             | 0                    |
 | Code Blocks      | 3 — `ts`, `ts`, `ts` |
 
-**Key:** Notice the outer fence uses four backticks (``````) because the Discord message contains inner triple-backtick code blocks. The user copies everything between the outer fence — inner backticks are part of the message.
-
 ---
 
 ## Quick Reference
@@ -218,26 +214,11 @@ Drop questions in <#sdk-support> — <@core-team> is standing by. 🫡
 
 ## Text Formatting
 
-### Emphasis
-
-```
-*italic* or _italic_
-**bold**
-***bold italic***
-__underline__
-~~strikethrough~~
-||spoiler text||
-```
-
 ### Combining Styles
 
-Nest formatting markers from outside in. Discord resolves them in this order: underline → bold → italic → strikethrough.
+Nest formatting markers from outside in — Discord resolves them in this order: underline → bold → italic → strikethrough. The combinations in the Quick Reference table above cover the common cases; two that come up often but aren't in that table:
 
 ```
-__**bold underline**__
-__*italic underline*__
-__***bold italic underline***__
-~~**bold strikethrough**~~
 ~~__**bold underline strikethrough**__~~
 ||**bold spoiler**||
 ```
@@ -367,9 +348,9 @@ See [references/syntax-highlighting.md](references/syntax-highlighting.md) for t
 
 **Masked links only render as clickable in bot messages, webhook messages, and embeds — never in a normal message a person types or pastes.** Discord's own engineering team has confirmed on the public API-docs issue tracker that masked-link rendering has never been rolled out for general user messages: send `[label](url)` in a regular chat message and Discord shows the literal brackets, label, and URL as plain text, not a link.
 
-Since this skill's default output (see "Output Presentation" above) is a copy-paste-ready message for a person to post themselves, **default to bare or auto-linked URLs, not masked links**, unless "Before You Draft" confirmed the message is going out through a bot or webhook. When multiple links need attribution, skip masking entirely and write the URL out bare next to its label, e.g. `Built by **Name** under **Company** (https://company.com) → https://product.com` — note this is deliberately *not* a masked link, since masking is exactly what to avoid in this context. Bolding the name/label this way is a good default — it's the same bolded-lead-in pattern recommended above — but it isn't mandatory; plain text is equally correct when the surrounding message or template doesn't use bold elsewhere. Either way, the URL itself stays unformatted so it remains a clean clickable link.
+Since this skill's default output is a copy-paste-ready message for a person to post themselves, **default to bare or auto-linked URLs, not masked links**, unless "Before You Draft" confirmed the message is going out through a bot, webhook, or embed. When multiple links need attribution, write the URL bare next to its label, e.g. `Built by **Name** under **Company** (https://company.com) → https://product.com`. Bolding the name/label this way is a good default — it's the same bolded-lead-in pattern recommended above — but it isn't mandatory; plain text works equally well. Either way, the URL itself stays unformatted so it remains a clean clickable link.
 
-If the message _is_ bot/webhook-authored and masked links are safe to use, still keep emoji out of the label — Discord explicitly disallows emoji inside a masked link's clickable text (`[🎉 Patch Notes](url)` won't mask; `🎉 [Patch Notes](url)` will).
+Where masked links *are* safe to use (bot/webhook/embed content), still keep emoji out of the label — Discord explicitly disallows emoji inside a masked link's clickable text (`[🎉 Patch Notes](url)` won't mask; `🎉 [Patch Notes](url)` will).
 
 ### Auto-linking
 
@@ -386,14 +367,6 @@ Wrap a URL in angle brackets to prevent Discord from generating a preview embed:
 ```
 <https://example.com>
 ```
-
-The same trick works inside a masked link — wrap the URL (not the label) in angle brackets to keep the link clickable without triggering a preview embed:
-
-```
-[label](<https://example.com>)
-```
-
-This only matters where masked links actually render — bot messages, webhooks, and embeds (see "Masked Links" above). It has no effect in a regular user message, since the whole `[label](url)` syntax already shows as literal text there.
 
 ## Timestamps
 
@@ -450,9 +423,8 @@ That was <t:1770537600:R>
 5. **Spoilers are Discord-only** — `||text||` has no equivalent in standard Markdown
 6. **Lists need a blank line** — Start lists after a blank line or they may not render
 7. **Embed markdown differs** — Some formatting behaves differently in embeds vs chat messages
-8. **2000 character limit** — Standard messages max at 2,000 characters; nitro users get 4,000
-9. **Embed description limit** — Embed descriptions max at 4,096 characters
-10. **Code block language names are case-insensitive** — `JS`, `js`, and `JavaScript` all work
+8. **Character limits vary by context** — see "Formatting for Different Contexts" below for the exact limit per message type
+9. **Code block language names are case-insensitive** — `JS`, `js`, and `JavaScript` all work
 
 ## Formatting for Different Contexts
 
@@ -476,7 +448,7 @@ Full markdown support, **and masked links work correctly here** (unlike regular 
 
 ### Forum Posts
 
-Full markdown support in the post body. Title is plain text only.
+Full markdown support in the post body. 4,096 character limit for the body; 100 character limit for the title (title is plain text only, no markdown).
 
 ## Resources
 

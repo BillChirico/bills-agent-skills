@@ -179,7 +179,7 @@ paste relevant error output here
 -# Reported by <@USER_ID> • <t:UNIX_TIMESTAMP:d>
 ````
 
-Uses a four-backtick outer fence because the error-output block is itself a nested triple-backtick code block — see "Handle nested code blocks" in `SKILL.md`.
+Uses a four-backtick outer fence because the error-output block is itself a nested triple-backtick code block — see the "Backtick fence escalation rule" in `SKILL.md`.
 
 ### Changelog / Release Notes
 
