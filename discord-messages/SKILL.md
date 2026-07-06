@@ -387,6 +387,14 @@ Wrap a URL in angle brackets to prevent Discord from generating a preview embed:
 <https://example.com>
 ```
 
+The same trick works inside a masked link — wrap the URL (not the label) in angle brackets to keep the link clickable without triggering a preview embed:
+
+```
+[label](<https://example.com>)
+```
+
+This only matters where masked links actually render — bot messages, webhooks, and embeds (see "Masked Links" above). It has no effect in a regular user message, since the whole `[label](url)` syntax already shows as literal text there.
+
 ## Timestamps
 
 Dynamic timestamps that display in each user's local timezone.
