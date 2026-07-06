@@ -1,6 +1,6 @@
 # Discord Messages
 
-Discord formatting skill for copy-paste-ready chat messages, bot responses, embeds, forum posts, webhook payloads, and templates — plus structural and tone guidance for writing the announcements themselves.
+Discord messages formatting skill for copy-paste-ready chat messages, bot responses, embeds, forum posts, webhook payloads, and templates — plus structural and tone guidance for writing the announcements themselves.
 
 ## When to Use
 
