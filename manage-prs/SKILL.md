@@ -1,6 +1,6 @@
 ---
 name: manage-prs
-description: Manage and maintain GitHub pull requests end-to-end. Use when Codex is asked to fix PR review comments, unresolved review threads, top-level PR conversation comments, requested changes, merge conflicts, or CI/CD failures; when the user says to manage, maintain, clean up, unblock, get green, finish, or prepare a PR; or when a PR must have no unresolved actionable comments and no failing checks.
+description: Manage and maintain GitHub pull requests end-to-end. Use when asked to fix PR review comments, unresolved review threads, top-level PR conversation comments, requested changes, merge conflicts, or CI/CD failures; when the user says to manage, maintain, clean up, unblock, get green, finish, or prepare a PR; or when a PR must have no unresolved actionable comments and no failing checks.
 ---
 
 # Manage PRs

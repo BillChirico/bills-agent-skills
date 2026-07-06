@@ -178,9 +178,7 @@ YOUR SINGLE RESPONSE MUST CONTAIN:
 
 **Teammate prompt template:**
 
-> **IMPORTANT:** Before spawning teammates, read the team config file at
-> `~/.claude/teams/pr-resolver-<prNumber>/config.json` to get your own leader name.
-> Inject that name into the prompt template below as `[leaderName]`.
+> **IMPORTANT:** Before spawning teammates, configure your team orchestration settings with your agent's team config. Inject the leader name into the prompt template below as `[leaderName]`.
 
 ```
 You are a teammate on the "pr-resolver-<prNumber>" team.

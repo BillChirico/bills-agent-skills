@@ -1,10 +1,10 @@
 # AGENTS.md
 
-This file provides guidance to Codex (Codex.ai/code) when working with code in this repository.
+This file provides guidance to AI coding agents when working with code in this repository.
 
 ## Repository Overview
 
-This is a collection of custom Codex skills. Skills are self-contained modules that provide Codex with specialized capabilities through structured workflows and documentation.
+This is a collection of custom agent skills. Skills are self-contained modules that provide AI coding agents with specialized capabilities through structured workflows and documentation.
 
 ## Structure
 
@@ -20,8 +20,9 @@ bills-agent-skills/
 ├── discord/
 │   ├── README.md
 │   ├── SKILL.md
-│   ├── syntax-highlighting.md
-│   └── templates.md
+│   └── references/
+│       ├── syntax-highlighting.md
+│       └── templates.md
 ├── github-pr-resolver/
 │   ├── README.md
 │   ├── SKILL.md

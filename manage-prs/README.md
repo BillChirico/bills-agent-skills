@@ -12,7 +12,7 @@ GitHub pull request maintenance skill for review comments, unresolved threads, t
 ## Folder Contents
 
 - `SKILL.md` - Main end-to-end PR maintenance workflow.
-- `agents/openai.yaml` - Codex app metadata for the skill surface.
+- `agents/openai.yaml` - Agent integration metadata for the skill surface.
 - `scripts/inspect_pr_state.py` - Inspects review threads, top-level comments, review summaries, and checks.
 - `scripts/resolve_review_threads.py` - Resolves explicit GitHub review-thread IDs after fixes are pushed.
 

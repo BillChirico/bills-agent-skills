@@ -60,7 +60,7 @@ When picking which bullet gets the emoji, pick the one that's most novel, most i
 
 When composing a Discord message for the user, **always present the final message inside a fenced code block** so the user can copy-paste it directly into Discord with all markdown formatting intact.
 
-**Why:** Claude's chat interface renders markdown (e.g., `**bold**` becomes **bold**). If the user copies rendered text, the markdown syntax is stripped and the message loses its formatting when pasted into Discord. A code block preserves the raw syntax.
+**Why:** Chat interfaces render markdown (e.g., `**bold**` becomes **bold**). If the user copies rendered text, the markdown syntax is stripped and the message loses its formatting when pasted into Discord. A code block preserves the raw syntax.
 
 ### How to Present Discord Messages
 
@@ -142,7 +142,7 @@ Format the summary as a compact table directly below the code block:
 
 **User:** "Write me a Discord announcement about a new SDK release that includes code examples"
 
-**Claude's response should look like:**
+**Your response should look like:**
 
 Here's your SDK announcement:
 
@@ -367,7 +367,7 @@ See [references/syntax-highlighting.md](references/syntax-highlighting.md) for t
 
 **Masked links only render as clickable in bot messages, webhook messages, and embeds — never in a normal message a person types or pastes.** Discord's own engineering team has confirmed on the public API-docs issue tracker that masked-link rendering has never been rolled out for general user messages: send `[label](url)` in a regular chat message and Discord shows the literal brackets, label, and URL as plain text, not a link.
 
-Since this skill's default output (see "Output Presentation" above) is a copy-paste-ready message for a person to post themselves, **default to bare or auto-linked URLs, not masked links**, unless "Before You Draft" confirmed the message is going out through a bot or webhook. When multiple links need attribution in a bare-URL context, write it out rather than masking, e.g. `Built by Name under Company (https://company.com) → https://product.com`. Bold is optional emphasis here, not a requirement — match whatever bold/plain convention the surrounding message or template already uses rather than adding it by default.
+Since this skill's default output (see "Output Presentation" above) is a copy-paste-ready message for a person to post themselves, **default to bare or auto-linked URLs, not masked links**, unless "Before You Draft" confirmed the message is going out through a bot or webhook. When multiple links need attribution in a bare-URL context, write it out rather than masking, e.g. `Built by **Name** under **Company** (https://company.com) → https://product.com`. Bolding the name/label this way is a good default — it's the same bolded-lead-in pattern recommended above — but it isn't mandatory; plain text is equally correct when the surrounding message or template doesn't use bold elsewhere. Either way, the URL itself stays unformatted so it remains a clean clickable link.
 
 If the message *is* bot/webhook-authored and masked links are safe to use, still keep emoji out of the label — Discord explicitly disallows emoji inside a masked link's clickable text (`[🎉 Patch Notes](url)` won't mask; `🎉 [Patch Notes](url)` will).
 

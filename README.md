@@ -4,12 +4,19 @@ Custom skills for AI coding agents that automate common workflows.
 
 ## Installation
 
-```text
-# Add marketplace
-/plugin marketplace add BillChirico/bills-agent-skills
+### Skills.sh (recommended)
 
-# Install a skill
-/plugin install github-pr-resolver@bills-agent-skills
+```bash
+npx skills add BillChirico/bills-agent-skills
+```
+
+### Source
+
+Clone the repo and copy any skill folder to your agent's skills directory:
+
+```bash
+git clone https://github.com/BillChirico/bills-agent-skills.git
+cp -r bills-agent-skills/<skill-name> ~/.agents/skills/
 ```
 
 ## Skills
@@ -74,7 +81,7 @@ Applies Volvox LLC's official brand identity, colors, typography, and voice.
 
 ## Prerequisites
 
-- [Claude Code CLI](https://claude.ai/code)
+- An AI coding agent (for example, GitHub Copilot)
 - [GitHub CLI](https://cli.github.com/) with `repo` scope for `github-pr-resolver` and `manage-prs`
 - Python 3 and Pillow for `app-store-image-enhancer`
 
