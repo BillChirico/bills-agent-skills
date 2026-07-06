@@ -1,4 +1,4 @@
-# Discord Markdown
+# Discord Messages
 
 Discord formatting skill for copy-paste-ready chat messages, bot responses, embeds, forum posts, webhook payloads, and templates — plus structural and tone guidance for writing the announcements themselves.
 
@@ -11,7 +11,7 @@ Discord formatting skill for copy-paste-ready chat messages, bot responses, embe
 
 ## Folder Contents
 
-- `SKILL.md` - Main Discord markdown workflow, structural/tone guidance for announcements, and output rules.
+- `SKILL.md` - Main Discord messages workflow, structural/tone guidance for announcements, and output rules.
 - `syntax-highlighting.md` - Supported code block language identifiers.
 - `templates.md` - Reusable message templates for announcements, community posts, moderation, and more.
 

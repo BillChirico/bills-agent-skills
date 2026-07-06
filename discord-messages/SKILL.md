@@ -1,5 +1,5 @@
 ---
-name: discord-markdown
+name: discord-messages
 description: Format text for Discord using markdown syntax, and draft well-structured Discord announcements. Use when composing Discord messages, bot responses, embed descriptions, forum posts, webhook payloads, announcements, patch notes, or any content destined for Discord's chat interface. Triggers on requests mentioning Discord formatting, Discord messages, Discord bots, Discord embeds, Discord announcements, or when the user needs text styled or structured for Discord's rendering engine — including requests to "turn this into a Discord post," add/reduce emoji, or clean up formatting for a specific channel or thread. Covers bold, italic, underline, strikethrough, spoilers, code blocks with syntax highlighting, headers, subtext, lists, block quotes, masked links, timestamps, mentions, plus structural/tone guidance for announcements (section skeleton, bolded lead-ins, calibrated emoji density) and the pre-draft question that determines link style (masked vs. bare URL). Always presents Discord-ready messages inside fenced code blocks so the user can copy-paste them directly into Discord with all markdown formatting preserved.
 ---
 

@@ -33,11 +33,11 @@ Enhances image resolution, sharpness, and clarity using Python and Pillow.
 
 ---
 
-### Discord Markdown
+### Discord Messages
 
 Formats copy-paste-ready Discord messages, embeds, templates, and bot responses.
 
-[View documentation](discord/README.md)
+[View documentation](discord-messages/README.md)
 
 ---
 
