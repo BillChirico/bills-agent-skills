@@ -1,9 +1,9 @@
 {
-  "name": "bills-claude-skills",
+  "name": "bills-agent-skills",
   "metadata": {
     "version": "1.0.0",
-    "description": "A collection of custom Claude Code skills for Git workflow automation and GitHub PR management",
-    "homepage": "https://github.com/BillChirico/bills-claude-skills"
+    "description": "A collection of custom agent skills for Git workflow automation and GitHub PR management",
+    "homepage": "https://github.com/BillChirico/bills-agent-skills"
   },
   "owner": {
     "name": "BillChirico",
@@ -19,7 +19,7 @@
       "author": {
         "name": "BillChirico"
       },
-      "repository": "https://github.com/BillChirico/bills-claude-skills",
+      "repository": "https://github.com/BillChirico/bills-agent-skills",
       "license": "MIT"
     },
     {
@@ -31,7 +31,7 @@
       "author": {
         "name": "BillChirico"
       },
-      "repository": "https://github.com/BillChirico/bills-claude-skills",
+      "repository": "https://github.com/BillChirico/bills-agent-skills",
       "license": "MIT"
     }
   ],

@@ -1,15 +1,15 @@
-# Bill's Claude Skills
+# Bill's Agent Skills
 
-Custom skills for Claude Code that automate common workflows.
+Custom skills for AI coding agents that automate common workflows.
 
 ## Installation
 
 ```text
 # Add marketplace
-/plugin marketplace add BillChirico/bills-claude-skills
+/plugin marketplace add BillChirico/bills-agent-skills
 
 # Install a skill
-/plugin install github-pr-resolver@bills-claude-skills
+/plugin install github-pr-resolver@bills-agent-skills
 ```
 
 ## Skills
@@ -43,6 +43,7 @@ Resolves all PR review comments and ensures CI passes.
 ```
 
 **What it does:**
+
 - Fetches all review threads (paginated)
 - Creates todo list with author names and comment links
 - Fixes issues in parallel (groups by file)

@@ -9,7 +9,7 @@ This is a collection of custom Codex skills. Skills are self-contained modules t
 ## Structure
 
 ```text
-bills-claude-skills/
+bills-agent-skills/
 ├── .claude-plugin/
 │   └── marketplace.json
 ├── app-store-image-enhancer/
@@ -45,6 +45,7 @@ bills-claude-skills/
 ## Skills Architecture
 
 Each skill follows this pattern:
+
 - **SKILL.md**: Frontmatter with `name` and `description`, followed by workflow documentation
 - **README.md**: Human-facing overview, requirements, folder map, and usage notes
 - **commands/**: Slash command definitions (e.g., `/resolve-pr`, `/enhance-image`)
