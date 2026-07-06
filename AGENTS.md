@@ -9,15 +9,19 @@ This is a collection of custom agent skills. Skills are self-contained modules t
 ## Structure
 
 ```text
-bills-agent-skills/
+bills-claude-skills/
 ├── .claude-plugin/
 │   └── marketplace.json
+├── AGENTS.md
+├── CLAUDE.md
+├── LICENSE
+├── README.md
 ├── app-store-image-enhancer/
 │   ├── README.md
 │   ├── SKILL.md
 │   └── commands/
 │       └── app-store-image-enhancer-command.md
-├── discord/
+├── discord-messages/
 │   ├── README.md
 │   ├── SKILL.md
 │   └── references/
@@ -34,13 +38,19 @@ bills-agent-skills/
 │   ├── README.md
 │   ├── SKILL.md
 │   ├── agents/
+│   │   └── openai.yaml
 │   └── scripts/
+│       ├── inspect_pr_state.py
+│       └── resolve_review_threads.py
 ├── volvox/
 │   ├── README.md
 │   ├── SKILL.md
 │   ├── assets/
 │   └── references/
-└── README.md
+│       ├── app-store-guidelines.md
+│       ├── press-kit.md
+│       ├── product-info.md
+│       └── voice-guide.md
 ```
 
 ## Skills Architecture
