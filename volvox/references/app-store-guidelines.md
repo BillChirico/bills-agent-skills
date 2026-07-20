@@ -1,135 +1,128 @@
 # App Store Submission Guidelines
 
-Quick reference for Apple App Store and Google Play Store submissions.
+Quick reference for Apple App Store and Google Play submissions. Last verified July 19, 2026; store consoles remain the final authority.
 
-## Text Metadata Comparison
+## Text Metadata
 
 | Field          | Apple                      | Google                     |
 | -------------- | -------------------------- | -------------------------- |
-| App Name       | 30 chars                   | 30 chars                   |
-| Short/Subtitle | 30 chars                   | 80 chars                   |
-| Description    | 4,000 chars                | 4,000 chars                |
-| Keywords       | 100 chars (separate field) | Extracted from description |
+| App Name       | 30 characters              | 30 characters              |
+| Subtitle/Short | 30 characters              | 80 characters              |
+| Description    | 4,000 characters           | 4,000 characters           |
+| Keywords       | 100-character field        | Extracted from listing copy |
 
 ## Apple App Store
 
 ### Text Fields
 
-- **App Name (30):** Include key search terms
-- **Subtitle (30):** Brief value prop
-- **Promotional Text (170):** Updateable without new build
-- **Description (4,000):** First 3 lines visible before tap
-- **Keywords (100):** Comma-separated, no spaces, single words only
+- **App Name (30):** Accurate product name; include a useful search term only when it reads naturally.
+- **Subtitle (30):** Concise value proposition.
+- **Promotional Text (170):** Can be updated without a new app version.
+- **Description (4,000):** Lead with the current product value and capabilities.
+- **Keywords (100):** Comma-separated terms. Omit spaces after commas, but spaces are allowed inside phrases such as `Real Estate`.
 
-### Keyword Rules (iOS)
+### Keyword Rules
 
-- Use all 100 characters
-- Don't repeat words from app name/subtitle (auto-indexed)
-- Format: `recovery,sobriety,sponsor,tracker`
-- Include misspellings and synonyms
-- No competitor brand names
+- Avoid duplicating words already covered by the app name, subtitle, or category.
+- Use relevant terms and phrases that describe real functionality.
+- Do not use competitor names, unauthorized trademarks, irrelevant terms, or keyword stuffing.
+- Promotional text is not indexed for search.
 
-### Screenshots (iOS)
+### Screenshots
 
-| Device       | Size                   | Max |
-| ------------ | ---------------------- | --- |
-| iPhone 6.9"  | 1320×2868 or 1290×2796 | 10  |
-| iPhone 6.5"  | 1284×2778 or 1242×2688 | 10  |
-| iPad Pro 13" | 2064×2752              | 10  |
+Upload one to ten screenshots per supported device family. JPEG, JPG, and PNG are accepted; screenshots cannot contain alpha or transparency.
 
-### App Preview Video (iOS)
+| Device       | Accepted portrait sizes                         | Requirement |
+| ------------ | ----------------------------------------------- | ----------- |
+| iPhone 6.9"  | 1260×2736, 1290×2796, or 1320×2868             | Required for iPhone apps |
+| iPhone 6.5"  | 1242×2688 or 1284×2778                         | Used when 6.9" screenshots are absent |
+| iPad 13"     | 2048×2732 or 2064×2752                         | Required when the app runs on iPad |
 
-- Duration: 15–30 seconds (strict)
-- Must include audio track (silent OK, but stream required)
-- Format: H.264, .mov/.mp4, 30fps
-- No hands/devices in frame
+Landscape uses the corresponding reversed dimensions. Check Apple's full specification for older devices and other platforms.
 
-### Required Assets (iOS)
+### App Preview Video
 
-- App icon: 1024×1024, no transparency
-- Privacy Policy URL
-- Support URL
+- Duration: 15–30 seconds.
+- Use an accepted H.264 `.mov`, `.m4v`, or `.mp4` profile and resolution for the target device.
+- Show the app itself; avoid hands or external device footage.
+- Verify the current codec, frame-rate, and audio requirements before export.
 
----
+### Required Submission Material
 
-## Google Play Store
+- App icon supplied through the Xcode asset catalog; the marketing icon is 1024×1024 and opaque.
+- Privacy Policy URL for iOS and macOS apps.
+- Support URL and accurate review contact/instructions.
+- Completed privacy, age-rating, content-rights, and any applicable regulated-medical-device declarations.
+
+## Google Play
 
 ### Text Fields
 
-- **App Name (30):** Primary search factor
-- **Short Description (80):** Visible without expanding
-- **Full Description (4,000):** Keywords extracted from here
+- **App Name (30):** Accurate product name.
+- **Short Description (80):** Plain-language synopsis of the core value.
+- **Full Description (4,000):** Current capabilities and relevant search language.
 
-### Keyword Strategy (Android)
+Google does not provide a separate keyword field. Write naturally; unnecessary repetition and keyword spam do not improve ranking and can create policy problems.
 
-- No separate keyword field—description IS keywords
-- Repeat important keywords 3-5× naturally
-- Use long-tail phrases ("sobriety tracker app")
-- Front-load keywords in first 2 lines
-- Don't stuff—Google penalizes
+### Graphics
 
-### Graphics (Android)
+| Asset             | Current requirement                                      | Required |
+| ----------------- | -------------------------------------------------------- | -------- |
+| App Icon          | 512×512, 32-bit PNG with alpha, maximum 1,024 KB         | Yes      |
+| Feature Graphic   | 1024×500, JPEG or 24-bit PNG without alpha               | Yes      |
+| Screenshots       | 2–8 per device type; 320–3840 px, JPEG/24-bit PNG, no alpha | Yes   |
 
-| Asset              | Size                    | Required    |
-| ------------------ | ----------------------- | ----------- |
-| App Icon           | 512×512 PNG             | Yes         |
-| Feature Graphic    | 1024×500                | Yes         |
-| Phone Screenshots  | 16:9 or 9:16, min 320px | Yes (2-8)   |
-| Tablet Screenshots | Same as phone           | Recommended |
+For screenshots, the longest dimension cannot exceed twice the shortest dimension. Four 1080p phone screenshots are strongly recommended for eligibility in large recommendation surfaces. Large-screen listings have additional requirements.
 
-### Feature Graphic Tips
+### Graphic Content Rules
 
-- Most prominent visual asset
-- Avoid small text
-- Design for dark/light backgrounds
-- Keep critical elements away from edges
+- Show the real app experience and current functionality.
+- Keep the feature graphic's focal content near the center to survive cropping.
+- Avoid rankings, awards, prices, promotions, testimonials, or calls to action in store graphics.
+- Localize marketing text and provide concise alt text for each uploaded graphic.
 
-### Promo Video (Android)
+### Preview Video
 
-- YouTube URL only (unlisted OK)
-- Duration: 30s–2min recommended
-- Landscape preferred
-- Feature graphic used as thumbnail
+- One public or unlisted, embeddable YouTube URL; playlists and private videos are not accepted.
+- Disable ads and monetization claims that could display third-party ads.
+- Put real app footage early and design for muted autoplay.
 
-### Required Assets (Android)
+### Required Submission Material
 
-- App icon: 512×512 PNG
-- Feature graphic: 1024×500
-- Minimum 2 screenshots
-- Privacy Policy URL
-- Contact email (public)
+- App icon, feature graphic, and at least two screenshots.
+- Privacy Policy URL and public contact email.
+- Completed Data safety, target-audience, content-rating, and app-content declarations.
 
----
+## Current Volvox Storefront Snapshot
 
-## Categories
+Ratings and categories are questionnaire results, not values to copy blindly. Re-check both consoles whenever product content changes.
 
-**Primary:** Health & Fitness  
-**Secondary/Tags:** Lifestyle
+| Product      | Apple category / rating | Google category / rating |
+| ------------ | ----------------------- | ------------------------ |
+| Decision Jar | Lifestyle / 4+          | Productivity / Everyone  |
+| Sobers       | Health & Fitness / 18+  | Lifestyle / Everyone     |
 
-## Age Rating
+Snapshot verified against US storefronts on July 19, 2026. Apple ratings can vary by operating-system generation and region.
 
-Recovery apps typically rate:
+## Review Timing
 
-- iOS: 12+ (mature themes)
-- Android: Teen or Mature 17+
+- **Apple:** Apple reports that 90% of submissions are reviewed in under 24 hours on average. This is not a guarantee; incomplete review information causes delays, and distribution can take up to another 24 hours after approval.
+- **Google:** Processing can take a few hours to seven days or longer in exceptional cases. Plan at least a one-week buffer. Submitting more changes while a review is active can restart the review clock.
 
-## Keyword Research (Both Platforms)
+## Before Submission
 
-**Required before submission:**
+1. Verify metadata and prices directly in the live storefront for each region being targeted.
+2. Review search terms in App Store Connect and Play Console; use a reputable ASO research tool only as supplemental evidence.
+3. Confirm every screenshot, feature claim, privacy declaration, and support link matches the current release.
+4. Include working review credentials and concise reviewer instructions when login or setup is required.
 
-1. Use ASO tools (AppVector, App Radar, Sensor Tower, AppTweak, FireSEO)
-2. Analyze top 5-10 competitor keywords
-3. Document: keyword, search volume, difficulty, relevance
+## Official Sources
 
-**Never submit without documented research.**
-
-## Review Timeline
-
-| Platform | New App  | Update   |
-| -------- | -------- | -------- |
-| Apple    | 1-3 days | 1-2 days |
-| Google   | 3-7 days | 1-3 days |
-
-## Data/Privacy Declarations
-
-Must be declared and will be in the app's privacy policy and terms of service.
+- [Apple app information reference](https://developer.apple.com/help/app-store-connect/reference/app-information/app-information/)
+- [Apple app icon help](https://developer.apple.com/help/app-store-connect/manage-app-information/add-an-app-icon)
+- [Apple screenshot specifications](https://developer.apple.com/help/app-store-connect/reference/app-information/screenshot-specifications/)
+- [Apple product-page and keyword guidance](https://developer.apple.com/app-store/product-page/)
+- [Apple App Review status](https://developer.apple.com/app-store/review/)
+- [Google Play preview asset requirements](https://support.google.com/googleplay/android-developer/answer/9866151)
+- [Google Play store-listing guidance](https://support.google.com/googleplay/android-developer/answer/13393723)
+- [Google Play review and publishing timing](https://support.google.com/googleplay/android-developer/answer/9859654)

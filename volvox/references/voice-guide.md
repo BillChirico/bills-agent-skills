@@ -29,11 +29,11 @@ Detailed brand voice, product tones, and content guidelines.
 
 ### Decision Jar 🫙
 
-**One-liner:** Stop overthinking. Start deciding.
+**One-liner:** Stop overthinking. Start shaking.
 
 **Audience:** Overthinkers, indecisive people, anyone who's spent 20 minutes deciding where to eat.
 
-**Where they are:** Twitter/X, TikTok, Instagram, Reddit (r/ADHD, r/meirl, productivity subs)
+**Where they are:** TikTok, Instagram, Reddit (r/ADHD, r/meirl, productivity subs), and short-form product communities
 
 **Example Copy:**
 
@@ -42,11 +42,11 @@ Detailed brand voice, product tones, and content guidelines.
 - "Finally, an app that makes decisions so you don't have to spiral."
 - "Paralysis by analysis? There's a jar for that."
 
-**Example Tweets:**
+**Example Social Posts:**
 
 Promotional:
 
-> The average person makes 35,000 decisions a day. At least let an app handle "what's for dinner."
+> You already made enough decisions today. Let an app handle "what's for dinner."
 >
 > 🫙 Decision Jar — now available on iOS/Android
 
@@ -59,7 +59,7 @@ Relatable:
 
 ### Sobers 🌱
 
-**One-liner:** Your support system, one tap away.
+**One-liner:** Track the journey, not just the days.
 
 **Audience:** People in recovery programs (AA, NA, etc.), sponsors, sponsees
 
@@ -72,7 +72,7 @@ Relatable:
 - "Built for the hard days and the good ones."
 - "Connection is the opposite of addiction. Stay connected."
 
-**Example Tweets:**
+**Example Social Posts:**
 
 Milestone:
 
@@ -90,6 +90,22 @@ Supportive:
 
 ---
 
+### Volvox.Bot 🤖
+
+**One-liner:** AI for Discord communities.
+
+**Audience:** Discord owners, moderators, community managers, and teams replacing fragmented self-hosted bots.
+
+**Example Copy:**
+
+- "Your community, re-engineered."
+- "AI chat, moderation, analytics, tickets, and community tools in one hosted bot."
+- "The bot stays online. You get your weekends back."
+
+**Tone rule:** Sound technically capable and operationally calm. Avoid fear-based moderation copy and hollow claims such as “enterprise-grade” unless a specific capability supports them.
+
+---
+
 ### Volvox Community 🌐
 
 **One-liner:** Learn by building. Grow by shipping.
@@ -103,7 +119,7 @@ Supportive:
 - "Learn by building. Grow by shipping. Repeat."
 - "Every senior dev was once mass Googling 'how to center a div.'"
 
-**Example Tweet:**
+**Example Social Post:**
 
 > Just merged a PR from someone's first-ever open source contribution.
 >
@@ -113,7 +129,7 @@ Supportive:
 
 ### Volvox Overall
 
-**Example Tweets:**
+**Example Social Posts:**
 
 Building in Public:
 
@@ -135,13 +151,13 @@ Services:
 
 ## Social Media Guidelines
 
-### Twitter/X Style
+### Short-Form Social Style
 
 - Hook in the first line
-- One idea per tweet
+- One idea per post
 - Emojis: sparingly (1-2 max)
 - Hashtags: rarely, only if useful
-- Threads for longer thoughts, not walls of text
+- Use a short post sequence for longer thoughts, not a wall of text
 
 ### Engagement
 
@@ -153,6 +169,7 @@ Services:
 ## Content Themes
 
 - Product launches and updates
+- Discord community operations (Volvox.Bot)
 - Software development insights
 - Decision-making tips/humor (Decision Jar)
 - Recovery support (Sobers)
@@ -165,7 +182,8 @@ Services:
 
 1. **Decision Jar** = playful, self-aware humor about indecision
 2. **Sobers** = warm, supportive, respectful—never jokey about recovery
-3. **Volvox Community** = encouraging, inclusive—celebrate all contributions
-4. **Volvox overall** = witty but genuine, professional but human
-5. Keep it short. Shorter than you think.
-6. Read it out loud. If it sounds like a brand, rewrite it.
+3. **Volvox.Bot** = technical, direct, reliable—cyber without cosplay
+4. **Volvox Community** = encouraging, inclusive—celebrate all contributions
+5. **Volvox overall** = witty but genuine, professional but human
+6. Keep it short. Shorter than you think.
+7. Read it out loud. If it sounds like a brand, rewrite it.

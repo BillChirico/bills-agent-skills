@@ -1,12 +1,12 @@
 # Volvox Brand
 
-Brand guidance skill for Volvox LLC, Decision Jar, Sobers, and Volvox Community visual and written assets.
+Brand guidance skill for Volvox LLC, Volvox.Bot, Decision Jar, Sobers, and Volvox Community visual and written assets.
 
 ## When to Use
 
 - Creating Volvox-branded pages, posts, presentations, or UI
 - Applying Volvox colors, typography, and logo assets
-- Writing copy for Decision Jar, Sobers, or Volvox Community
+- Writing copy for Volvox.Bot, Decision Jar, Sobers, or Volvox Community
 - Checking tone against the official Volvox voice
 
 ## Folder Contents

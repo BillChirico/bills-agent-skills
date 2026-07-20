@@ -9,7 +9,7 @@ This is a collection of custom agent skills. Skills are self-contained modules t
 ## Structure
 
 ```text
-bills-claude-skills/
+bills-agent-skills/
 ├── .claude-plugin/
 │   └── marketplace.json
 ├── AGENTS.md
@@ -42,6 +42,19 @@ bills-claude-skills/
 │   └── scripts/
 │       ├── inspect_pr_state.py
 │       └── resolve_review_threads.py
+├── wow-route-generator/
+│   ├── .claude-plugin/
+│   │   └── plugin.json
+│   ├── README.md
+│   ├── SKILL.md
+│   ├── examples/
+│   │   └── routes/
+│   │       ├── eversong-example.json
+│   │       └── zulaman-example.json
+│   ├── references/
+│   │   └── coordinate-projection.md
+│   └── scripts/
+│       └── build-route-map.mjs
 ├── volvox/
 │   ├── README.md
 │   ├── SKILL.md
@@ -62,6 +75,8 @@ Each skill follows this pattern:
 - **commands/**: Slash command definitions (e.g., `/resolve-pr`, `/enhance-image`)
 - **references/**: Supporting documentation for complex APIs or workflows
 
+All top-level folders containing `SKILL.md` are installable through the Agent Skills CLI. The Claude Code marketplace is a separate catalog and currently publishes `github-pr-resolver` and `wow-route-generator`.
+
 ## Working with Skills
 
 ### Prerequisites
@@ -76,7 +91,23 @@ gh auth status
 gh auth login
 ```
 
-Token requires `repo` scope for full repository access.
+For private repositories, a classic token needs `repo`; a fine-grained token needs access to the target repository with Pull requests set to read/write. Git push authentication is configured separately by `gh auth login` or the user's Git credential helper.
+
+The `wow-route-generator` skill requires Node.js 18 or newer.
+
+### Validation
+
+Run these checks after changing skill metadata, documentation, or marketplace entries:
+
+```bash
+npx skills add . --list
+claude plugin validate . --strict
+node --check wow-route-generator/scripts/build-route-map.mjs
+python3 manage-prs/scripts/inspect_pr_state.py --help
+python3 manage-prs/scripts/resolve_review_threads.py --help
+```
+
+Marketplace plugin versions are pinned. Bump a plugin's version whenever its published contents change, or Claude Code users will not receive the update.
 
 ## Commit Convention
 

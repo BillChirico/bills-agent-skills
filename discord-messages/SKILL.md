@@ -1,6 +1,6 @@
 ---
 name: discord-messages
-description: Format text for Discord using markdown syntax, and draft well-structured Discord announcements. Use when composing Discord messages, bot responses, embed descriptions, forum posts, webhook payloads, announcements, patch notes, or any content destined for Discord's chat interface. Triggers on requests mentioning Discord formatting, Discord messages, Discord bots, Discord embeds, Discord announcements, or when the user needs text styled or structured for Discord's rendering engine — including requests to "turn this into a Discord post," add/reduce emoji, or clean up formatting for a specific channel or thread. Covers bold, italic, underline, strikethrough, spoilers, code blocks with syntax highlighting, headers, subtext, lists, block quotes, masked links, timestamps, mentions, plus structural/tone guidance for announcements (section skeleton, bolded lead-ins, calibrated emoji density) and the pre-draft question that determines link style (masked vs. bare URL). Always presents Discord-ready messages inside fenced code blocks so the user can copy-paste them directly into Discord with all markdown formatting preserved.
+description: Format text for Discord using markdown syntax, and draft well-structured Discord announcements. Use when composing Discord messages, bot responses, embed descriptions, forum posts, webhook payloads, announcements, patch notes, or any content destined for Discord's chat interface. Triggers on requests mentioning Discord formatting, Discord messages, Discord bots, Discord embeds, Discord announcements, or when the user needs text styled or structured for Discord's rendering engine — including requests to "turn this into a Discord post," add/reduce emoji, or clean up formatting for a specific channel or thread. Covers bold, italic, underline, strikethrough, spoilers, code blocks with syntax highlighting, headers, subtext, lists, block quotes, masked links, timestamps, mentions, plus structural and tone guidance for announcements. Always presents Discord-ready messages inside fenced code blocks so the user can copy-paste them directly into Discord with all markdown formatting preserved.
 ---
 
 # Discord Messages Formatting
@@ -11,7 +11,7 @@ Format text for Discord's chat rendering engine. Discord uses a modified subset 
 
 Two questions shape everything below — resolve them before writing instead of guessing:
 
-1. **Who's posting this, and how?** A person typing/pasting it into a channel themselves, or a bot/webhook (an announcement bot, an integration, a webhook payload)? This determines the correct link formatting — see "Masked Links" under Links below. If the user doesn't specify, default to assuming a person is posting it manually: that's both the more common case and the one where masked links silently fail, so it's the safer default to assume.
+1. **Where will it be posted?** Standard chat, Nitro chat, bot/webhook content, an embed, or a forum post? This determines the character limit and whether the output needs plain message content or embed fields. If unspecified, assume standard chat.
 2. **What's the actual content?** Pull real features, changes, or details from the user, a changelog, or a repo rather than inventing filler. If you have tools that can read files or URLs, use them to pull real content instead of asking the user to dictate every bullet.
 
 ## Composing Announcements — Structure & Tone
@@ -106,7 +106,7 @@ After **every** Discord message code block, include a summary table with the fol
 
 | Stat                 | Description                                       | How to Count                                                                                                                                                                                                                                                  |
 | -------------------- | ------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Characters**       | Total character count of the message              | Count all characters inside the code block. Show as `X / limit`, using the limit for the message's actual context — see "Formatting for Different Contexts" below (2,000 for standard chat/bot/webhook messages, 4,096 for embeds and forum post bodies, 100 for forum titles). Only use the 4,000 Nitro limit if the user has said they have Nitro. |
+| **Characters**       | Total character count of the message              | Count all characters inside the code block. Show as `X / limit`, using the limit for the message's actual context — see "Formatting for Different Contexts" below (2,000 for standard chat, bot/webhook content, and API-created forum bodies; 4,000 for Nitro chat; 4,096 for embed descriptions; 100 for forum titles). |
 | **Sections**         | Number of header-delimited sections               | Count all `#`, `##`, `###` headers. If no headers, show `0`                                                                                                                                                                                                   |
 | **User Mentions**    | Users mentioned via `<@USER_ID>` or `<@!USER_ID>` | Count unique `<@...>` patterns (not role mentions)                                                                                                                                                                                                            |
 | **Role Mentions**    | Roles mentioned via `<@&ROLE_ID>`                 | Count unique `<@&...>` patterns. Include `@everyone` and `@here`                                                                                                                                                                                              |
@@ -134,7 +134,7 @@ Format the summary as a compact table directly below the code block:
 - For code blocks, list each language, e.g. `javascript, bash` — or `(no lang)` if the block has no language identifier
 - If characters exceed 80% of the limit, add a ⚠️ warning
 - If characters exceed the limit, add a 🚫 and suggest splitting the message
-- For URLs, flag it if the message contains masked links `[text](url)` while the delivery context is a regular user message — those render as literal text, not clickable links (see "Masked Links" under Links)
+- For URLs, count each destination once whether it is bare, angle-bracketed, or presented as a masked link
 
 ### Example Interaction
 
@@ -346,11 +346,7 @@ See [references/syntax-highlighting.md](references/syntax-highlighting.md) for t
 [Click here](https://example.com)
 ```
 
-**Masked links only render as clickable in bot messages, webhook messages, and embeds — never in a normal message a person types or pastes.** Discord's own engineering team has confirmed on the public API-docs issue tracker that masked-link rendering has never been rolled out for general user messages: send `[label](url)` in a regular chat message and Discord shows the literal brackets, label, and URL as plain text, not a link.
-
-Since this skill's default output is a copy-paste-ready message for a person to post themselves, **default to bare or auto-linked URLs, not masked links**, unless "Before You Draft" confirmed the message is going out through a bot, webhook, or embed. When multiple links need attribution, write the URL bare next to its label, e.g. `Built by **Name** under **Company** (https://company.com) → https://product.com`. Bolding the name/label this way is a good default — it's the same bolded-lead-in pattern recommended above — but it isn't mandatory; plain text works equally well. Either way, the URL itself stays unformatted so it remains a clean clickable link.
-
-Where masked links *are* safe to use (bot/webhook/embed content), still keep emoji out of the label — Discord explicitly disallows emoji inside a masked link's clickable text (`[🎉 Patch Notes](url)` won't mask; `🎉 [Patch Notes](url)` will).
+Masked links render as clickable text in ordinary chat messages as well as bot, webhook, and embed content. Use them when a readable label is clearer than exposing the full URL. Use a bare URL when the destination itself matters, and wrap a URL in angle brackets when a preview should be suppressed.
 
 ### Auto-linking
 
@@ -416,15 +412,14 @@ That was <t:1770537600:R>
 
 ## Discord-Specific Gotchas
 
-1. **Masked links don't work in normal messages** — `[label](url)` only renders as clickable in bot/webhook/embed content; in a regular message it shows as literal text. Default to bare URLs unless the message is bot/webhook-authored (see "Masked Links" under Links)
-2. **No nested block quotes** — Discord does not support `>>` for nested quotes
-3. **Headers need line start** — `#` must be the first character on the line (not inline)
-4. **Underline is NOT standard Markdown** — `__text__` underlines in Discord but bolds in standard Markdown
-5. **Spoilers are Discord-only** — `||text||` has no equivalent in standard Markdown
-6. **Lists need a blank line** — Start lists after a blank line or they may not render
-7. **Embed markdown differs** — Some formatting behaves differently in embeds vs chat messages
-8. **Character limits vary by context** — see "Formatting for Different Contexts" below for the exact limit per message type
-9. **Code block language names are case-insensitive** — `JS`, `js`, and `JavaScript` all work
+1. **No nested block quotes** — Discord does not support `>>` for nested quotes
+2. **Headers need line start** — `#` must be the first character on the line (not inline)
+3. **Underline is NOT standard Markdown** — `__text__` underlines in Discord but bolds in standard Markdown
+4. **Spoilers are Discord-only** — `||text||` has no equivalent in standard Markdown
+5. **Lists need a blank line** — Start lists after a blank line or they may not render
+6. **Embed markdown differs** — Some formatting behaves differently in embeds vs chat messages
+7. **Character limits vary by context** — see "Formatting for Different Contexts" below for the exact limit per message type
+8. **Code block language names are case-insensitive** — `JS`, `js`, and `JavaScript` all work
 
 ## Formatting for Different Contexts
 
@@ -432,7 +427,7 @@ That was <t:1770537600:R>
 
 ### Chat Messages
 
-Full markdown support **except masked links** — `[label](url)` renders as literal text here, not a clickable link. Use bare or auto-linked URLs instead. 2,000 character limit (4,000 with Nitro).
+Masked links and the standard Discord markdown subset are supported. The standard limit is 2,000 characters; Nitro raises a person's message limit to 4,000.
 
 ### Embed Descriptions
 
@@ -444,13 +439,15 @@ Limited markdown. 1,024 character limit per field.
 
 ### Bot Messages / Webhooks
 
-Full markdown support, **and masked links work correctly here** (unlike regular chat messages) — this is the one context where `[label](url)` is safe to use. Use embeds for richer formatting.
+Message content supports masked links and is limited to 2,000 characters through the API. Use embeds for richer formatting.
 
 ### Forum Posts
 
-Full markdown support in the post body. 4,096 character limit for the body; 100 character limit for the title (title is plain text only, no markdown).
+The forum title is plain text and limited to 100 characters. The starter post is message content: 2,000 characters through the API, or the posting person's normal 2,000/4,000 chat limit in the client. Forum starter messages additionally support headings, lists, and masked links.
 
 ## Resources
 
 - **Syntax highlighting:** [references/syntax-highlighting.md](references/syntax-highlighting.md) — full list of supported languages with examples
 - **Templates:** [references/templates.md](references/templates.md) — copy-paste templates for common Discord formatting patterns
+- **Official chat formatting:** [Discord Markdown Text 101](https://support.discord.com/hc/en-us/articles/210298617-Markdown-Text-101-Chat-Formatting-Bold-Italic-Underline)
+- **Official API limits:** [Discord Message Resource](https://docs.discord.com/developers/resources/message) and [Channel Resource](https://docs.discord.com/developers/resources/channel)

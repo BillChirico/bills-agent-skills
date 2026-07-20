@@ -1,9 +1,8 @@
 {
   "name": "bills-agent-skills",
+  "description": "Custom agent skills for Git workflows, communication, branding, and World of Warcraft route visualization",
   "metadata": {
-    "version": "1.0.0",
-    "description": "A collection of custom agent skills for Git workflow automation and GitHub PR management",
-    "homepage": "https://github.com/BillChirico/bills-agent-skills"
+    "version": "1.1.0"
   },
   "owner": {
     "name": "BillChirico",
@@ -13,8 +12,8 @@
     {
       "name": "github-pr-resolver",
       "source": "./github-pr-resolver",
-      "description": "Automate GitHub pull request review resolution by processing ALL review comments and fixing ALL failing CI checks.",
-      "version": "1.0.0",
+      "description": "Inspect live GitHub feedback, implement and push fixes, resolve exact review threads, and verify required checks.",
+      "version": "1.1.0",
       "keywords": ["github", "pull-request", "code-review", "ci", "automation"],
       "author": {
         "name": "BillChirico"
@@ -23,28 +22,16 @@
       "license": "MIT"
     },
     {
-      "name": "git-workspace-init",
-      "source": "./git-workspace-init",
-      "description": "Initialize a new git worktree and branch for feature development or bug fixes.",
-      "version": "1.0.0",
-      "keywords": ["git", "worktree", "branch", "workflow"],
+      "name": "wow-route-generator",
+      "source": "./wow-route-generator",
+      "description": "Generate coordinate-accurate World of Warcraft gathering-route maps from LootRoute JSON and Wowhead object data.",
+      "version": "0.3.3",
+      "keywords": ["world-of-warcraft", "wow", "lootroute", "route", "map", "visualization"],
       "author": {
         "name": "BillChirico"
       },
       "repository": "https://github.com/BillChirico/bills-agent-skills",
       "license": "MIT"
-    }
-  ],
-  "commands": [
-    {
-      "name": "resolve-pr",
-      "path": "./github-pr-resolver/commands/resolve-pr.md",
-      "description": "GitHub PR URL (e.g., https://github.com/owner/repo/pull/123) or PR number"
-    },
-    {
-      "name": "init-workspace",
-      "path": "./git-workspace-init/commands/init-workspace.md",
-      "description": "Initialize a new git worktree. Usage: /init-workspace <type> <description> (e.g., /init-workspace feat user-auth)"
     }
   ]
 }

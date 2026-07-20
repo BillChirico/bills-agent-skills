@@ -19,7 +19,7 @@ GitHub pull request maintenance skill for review comments, unresolved threads, t
 ## Requirements
 
 - GitHub CLI
-- Authenticated GitHub token with `repo` scope
+- GitHub authentication that can read and update pull requests in the target repository. Classic tokens need `repo` for private repositories; fine-grained tokens need **Pull requests: Read and write**.
 - Python 3
 
 ```bash
