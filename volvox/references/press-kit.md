@@ -1,24 +1,24 @@
 # Volvox Press Kit
 
-Media-ready company information for press, partnerships, and marketing.
+Media-ready company information for press, partnerships, and marketing. Last verified July 19, 2026.
 
 ## Company Boilerplate
 
-## Short (50 words)
+### Short
 
-Volvox LLC is a New Jersey-based software company building apps that help people make better decisions and stay accountable—because apparently we all need a little help with both. Our products include Decision Jar (for the chronically indecisive) and Sobers (recovery accountability, done right). Founded in 2020, we believe software should be useful, well-crafted, and respect the people who use it.
+Volvox LLC is a New Jersey-based software company and open-source learning community. It builds practical products including Volvox.Bot for Discord communities, Decision Jar for everyday choices, and Sobers for recovery accountability—software that solves real problems without forgetting the people using it.
 
-## Medium (100 words)
+### Medium
 
-Volvox LLC is a software development company based in New Jersey, building SaaS products and mobile apps that solve real problems—not problems we invented to sell you a subscription. Our flagship products, Decision Jar and Sobers, help people overcome decision fatigue and stay accountable in recovery, respectively. One shakes a jar, the other might save a life. Both matter. Founded in 2020 out of a developer learning community that started in 2018, Volvox operates with a dual mission: creating practical software solutions and fostering an inclusive developer community built on the principle of "no gatekeeping." We ship quality software with no dark patterns and no shortcuts—just uncomfortably thorough code reviews.
+Volvox LLC is a New Jersey-based software company and open-source learning community founded in 2020. The company builds useful, human-centered products: Volvox.Bot brings hosted AI chat, moderation, analytics, tickets, and community tooling to Discord; Decision Jar helps people escape decision fatigue; and Sobers supports recovery through sponsor-sponsee accountability, sobriety tracking, and structured progress. Volvox grew from a developer community started in 2018 and still treats teaching, collaboration, and open source as part of the work rather than marketing garnish. No gatekeeping. No ego. Just software that ships and people who learn by building it.
 
-## Long (150 words)
+### Long
 
-Volvox LLC is a New Jersey-based software development company building SaaS products, mobile apps, and a developer learning community that actually likes each other. Named after the colonial green algae where each cell works for the benefit of the whole—cooperation without hierarchy—Volvox embodies collaborative software development. Yes, we named a company after pond water. It tracks.
-Our products include Decision Jar, a playful app helping overthinkers break through analysis paralysis (you're welcome, dinner plans), and Sobers, a recovery accountability app connecting sponsors with sponsees—because accountability shouldn't require a spreadsheet and a prayer. Both reflect our belief that software should be useful, well-crafted, and respect its users.
-Founded in 2020 by Bill Chirico, Volvox grew from a Discord community of developers teaching and learning together. That DNA remains in everything we build: products that help people, code that doesn't cut corners, and a belief that we all get better when we work together. No dark patterns. No shortcuts. Just quality software, one commit at a time.
+Volvox LLC is a New Jersey-based software development company and open-source learning community. Named after the colonial green algae whose cells work together for the benefit of the whole, Volvox applies the same cooperative idea to software: contributors learn by shipping real products, and every product is built to be genuinely useful.
 
----
+Its current catalog includes Volvox.Bot, a fully hosted Discord platform for AI chat, moderation, analytics, support tickets, onboarding, reputation, and audit history; Decision Jar, a playful mobile app that turns everyday indecision into a shake of the phone; and Sobers, a free cross-platform recovery app built around sponsor-sponsee accountability, sobriety tracking, tasks, and 12-step progress.
+
+Founded in 2020 by Bill Chirico after the Volvox developer community began in 2018, the company combines product engineering with practical mentorship. The standard is simple: no dark patterns, no gatekeeping, and no shipping work nobody would be proud to maintain.
 
 ## Founder
 
@@ -26,107 +26,105 @@ Founded in 2020 by Bill Chirico, Volvox grew from a Discord community of develop
 
 **Title:** Founder & CEO
 
-**Bio (Short):**
-Bill Chirico is the founder and CEO of Volvox LLC, a software development company building apps that help people make better decisions and stay accountable—two things most of us could use a hand with. Based in New Jersey (yes, on purpose), Bill is a software engineer who believes software should respect its users, not trick them into a subscription they'll forget to cancel. He founded Volvox in 2020 after building a developer learning community in 2018, because apparently one full-time job wasn't enough.
+**Short bio:** Bill Chirico is the founder and CEO of Volvox LLC. He has more than 20 years of experience building apps, websites, and SaaS products and has run the Volvox developer mentorship community since 2018. He believes software should help people help each other.
 
-**Bio (Medium):**
-Bill Chirico is the founder and CEO of Volvox LLC, a New Jersey-based software company behind Decision Jar, Sobers, and the Volvox developer community. A software engineer by trade, Bill started the Volvox developer community in 2018 as a Discord server for developers teaching and learning together. In 2020, that community became a company. Bill believes software should be useful, well-crafted, and respect the people who use it—a philosophy that drives every product Volvox builds. He's pretty much been raised to start his own company his entire life, and Volvox is the result of that drive meeting the right people at the right time.
+**Medium bio:** Bill Chirico is the founder and CEO of Volvox LLC, the software company behind Volvox.Bot, Decision Jar, Sobers, and the Volvox developer community. A software engineer with more than 20 years of experience, Bill started the community in 2018 as a place where developers could learn by building together, then founded Volvox LLC in 2020. His work combines product engineering, open-source mentorship, and a stubborn belief that software should be useful, well-made, and respectful of the people using it.
 
----
+## Why the Name “Volvox”?
 
-## Why the name "Volvox"?
+Volvox is a colonial green algae: thousands of individual cells form one moving organism, each contributing to the whole. That biology is the metaphor. Volvox builds software through cooperation, shared ownership, and the belief that every contributor matters.
 
-Volvox is a colonial green algae—a microscopic organism where thousands of individual cells form a single, rolling sphere. Each cell has its own job, but none of them go rogue and start a side hustle. They work together, no hierarchy, no corner offices, no cells claiming they "basically built the whole colony."
-
-Every cell contributes to the movement, survival, and reproduction of the whole organism. It's cooperation baked into biology—collaboration isn't a company value plastered on a wall, it's literally how they stay alive.
-
-That's the energy we wanted for Volvox LLC. We build software the same way: every contributor matters, every line of code serves the product, and the community isn't a marketing buzzword—it's the foundation we grew from. Our developer community started in 2018, two years before we ever shipped a product. The community came first because that's how Volvox actually works in nature. The colony comes first.
-
-So yes, we named a software company after pond algae. But when you find an organism that figured out teamwork about 200 million years before corporate America tried, you take the name and run with it.
-
----
+Yes, the company is named after pond algae. The algae figured out teamwork long before corporate mission statements did.
 
 ## Team
 
-| Name              | Role                             |
-| ----------------- | -------------------------------- |
-| Bill Chirico      | Founder & CEO                    |
-| Anthony Cotteta   | CFO                              |
-| Eleftheria Batsou | Community Manager & Dev Advocate |
-
----
+| Name              | Current role                 |
+| ----------------- | ---------------------------- |
+| Bill Chirico      | Founder & CEO                |
+| Eleftheria Batsou | Developer Advocate           |
+| Hossain Jahed     | Developer                    |
+| Mohsin Mukhtar    | Developer                    |
+| Madhurima Gupta   | Digital Marketing Specialist |
+| Olivia H.         | Digital Marketing Specialist |
 
 ## Company Facts
 
 | Fact              | Detail                                   |
 | ----------------- | ---------------------------------------- |
-| Founded           | January 2020                             |
-| Headquarters      | New Jersey, USA                          |
-| Type              | Software Development (SaaS, Mobile Apps) |
+| Founded           | 2020                                     |
+| Headquarters      | Point Pleasant, New Jersey, USA          |
+| Type              | Software development and open-source learning community |
 | Community Founded | 2018                                     |
-| Philosophy        | No gatekeeping, everyone is welcome      |
-
----
+| Philosophy        | No gatekeeping. No ego. Just code.       |
 
 ## Products
 
+### Volvox.Bot
+
+- **Tagline:** AI for Discord communities.
+- **Category:** Hosted Discord bot / community operations
+- **Features:** AI chat, moderation, onboarding, analytics, tickets, XP, user memory, TL;DR summaries, and audit history
+- **Pricing:** Free
+- **Website:** https://volvox.bot
+
 ### Decision Jar
 
-- **Tagline:** Stop overthinking. Start deciding.
-- **Alt tagline:** You've overthought enough for one day.
-- **Category:** Productivity / Lifestyle
-- **Platforms:** iOS, Android, Web
-- **Pricing:** Free tier, $2.99/mo, $14.99/yr
+- **Tagline:** Stop overthinking. Start shaking.
+- **Category:** Lifestyle on Apple; Productivity on Google Play
+- **Platforms:** iOS and Android
+- **Pricing:** Free tier with optional Premium and a seven-day trial; storefront prices vary by region
+- **Website:** https://decisionjar.app
 
 ### Sobers
 
-- **Tagline:** Your support system, one tap away.
-- **Alt tagline:** Think Jira for your sobriety.
-- **Category:** Health & Fitness
-- **Platforms:** iOS, Android, Web
-- **Pricing:** Free with no ads or in-app purchases
-
----
+- **Tagline:** Track the journey, not just the days.
+- **Category:** Recovery accountability
+- **Platforms:** iOS, Android, and Web
+- **Pricing:** Free with no ads, premium tiers, or paywalls
+- **Website:** https://sobers.app
 
 ## Contact
 
-| Type            | Contact            |
-| --------------- | ------------------ |
-| Website         | https://volvox.dev |
-| Press Inquiries | admin@volvox.dev   |
-| General         | support@volvox.dev |
-
----
+| Type            | Contact                           |
+| --------------- | --------------------------------- |
+| Website         | https://volvox.dev                |
+| General Support | support@volvoxdev.com             |
+| Community       | https://discord.gg/8ahXACdamN     |
 
 ## Brand Assets
 
 Available in the `assets/` folder:
 
-- [`logo.png`](../assets/logo.png) — Primary logo (square) (default)
-- [`circle.png`](../assets/circle.png) — Circle logo (avatars)
-- [`dark-logo.png`](../assets/dark-logo.png) — Dark logo (square)
+- [`logo.png`](../assets/logo.png) — Primary square logo
+- [`circle.png`](../assets/circle.png) — Avatar/circle logo
+- [`dark-logo.png`](../assets/dark-logo.png) — Dark square logo
 - [`banner.jpg`](../assets/banner.jpg) — Marketing banner
-
----
 
 ## Usage Guidelines
 
 ### Logo Usage
 
-- Maintain clear space equal to the height of the smaller cell
-- Do not distort, rotate, or alter colors
-- Use circle variant for avatars and rounded contexts
-- Minimum size: 32px for digital, 0.5" for print
+- Maintain clear space equal to the height of the smaller cell.
+- Do not distort, rotate, recolor, or add effects.
+- Use the circle variant for avatars and rounded contexts.
+- Minimum size: 32 px digital or 0.5 in print.
 
 ### Brand Colors
 
-| Name             | Hex     | RGB          |
-| ---------------- | ------- | ------------ |
-| Primary Blue     | #007AFF | 0, 122, 255  |
-| Secondary Purple | #AF58DA | 175, 88, 218 |
-| Accent Orange    | #FF9500 | 255, 149, 0  |
+| Name             | Hex       | RGB          |
+| ---------------- | --------- | ------------ |
+| Primary Blue     | `#007AFF` | 0, 122, 255  |
+| Secondary Purple | `#AF58DA` | 175, 88, 218 |
+| Accent Orange    | `#FF9500` | 255, 149, 0  |
 
 ### Typography
 
-- **Primary Font:** JetBrains Mono
-- **Fallback:** Fira Code, SF Mono, Consolas, monospace
+- **Primary font:** JetBrains Mono
+- **Fallbacks:** Fira Code, SF Mono, Consolas, monospace
+
+## Current Public Sources
+
+- https://www.volvox.dev/
+- https://www.volvox.dev/products/volvox-bot
+- https://www.volvox.dev/products/decision-jar
+- https://www.volvox.dev/products/sobers

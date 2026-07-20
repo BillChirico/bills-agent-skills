@@ -13,7 +13,7 @@ Use the `app-store-image-enhancer` skill to improve image quality.
 
 - `path` (required): Path to the image file or directory to enhance
 - `mode` (optional): Enhancement preset - one of:
-  - `app-icon` - Optimizes for app store icons (resizes to 1024x1024, max sharpness)
+  - `app-icon` - Optimizes for the iOS marketing icon (resizes to 1024×1024 and removes alpha)
   - `screenshot` - Optimizes for documentation/blog screenshots
   - `general` - Default balanced enhancement
 

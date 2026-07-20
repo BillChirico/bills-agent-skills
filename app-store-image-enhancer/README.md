@@ -4,7 +4,7 @@ Image enhancement skill for app icons, screenshots, social images, and other ass
 
 ## When to Use
 
-- Preparing iOS, macOS, or Google Play store icons
+- Preparing iOS marketing icons or source artwork for other app stores
 - Upscaling or sharpening marketing screenshots
 - Cleaning up compressed PNG, JPG, JPEG, or WebP files
 - Batch-enhancing an image directory while preserving originals
@@ -20,6 +20,8 @@ Image enhancement skill for app icons, screenshots, social images, and other ass
 - Pillow
 
 ```bash
+python3 -m venv .venv
+source .venv/bin/activate
 python3 -m pip install Pillow
 ```
 
@@ -31,4 +33,4 @@ python3 -m pip install Pillow
 /enhance-image ./logo.jpg general
 ```
 
-Use `app-icon` for 1024x1024 store icons, `screenshot` for docs or marketing screenshots, and `general` for balanced cleanup.
+Use `app-icon` for opaque 1024×1024 iOS marketing icons, `screenshot` for docs or marketing screenshots, and `general` for balanced cleanup. Google Play icons require a separate 512×512 export that preserves alpha.

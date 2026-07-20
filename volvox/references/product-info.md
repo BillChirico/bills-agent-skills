@@ -13,21 +13,49 @@ Software development company based in New Jersey.
 | GitHub (Community) | https://github.com/VolvoxCommunity         |
 | GitHub (Company)   | https://github.com/VolvoxLLC               |
 | Discord            | https://discord.gg/8ahXACdamN              |
-| X (Twitter)        | https://x.com/volvox_llc                   |
 | Instagram          | https://instagram.com/volvox_llc           |
 | TikTok             | https://www.tiktok.com/@volvox_llc         |
 | LinkedIn           | https://www.linkedin.com/company/volvoxllc |
 | YouTube            | https://www.youtube.com/@volvox_llc        |
-| Facebook           | https://www.facebook.com/volvox_llc        |
-| Email              | support@volvox.dev                         |
+| Email              | support@volvoxdev.com                      |
 
 **Tagline:** Solving problems one commit at a time.
 
 ---
 
+## Volvox.Bot 🤖
+
+**Tagline:** AI for Discord communities.
+
+**What it does:** Fully hosted Discord bot for AI chat, onboarding, moderation, analytics, support tickets, reputation/XP, audit logs, user memory, and conversation summaries.
+
+### Links
+
+| Resource      | URL                           |
+| ------------- | ----------------------------- |
+| Website       | https://volvox.bot            |
+| Documentation | https://docs.volvox.bot       |
+| Support       | https://discord.gg/8ahXACdamN |
+
+### Pricing
+
+Free. Volvox handles hosting, updates, and infrastructure.
+
+### Key Features
+
+- Context-aware AI chat with user memory
+- Configurable manual and AI-assisted moderation
+- Welcome flows and rules verification
+- Analytics for messages, voice, engagement, and AI usage
+- Thread or channel support tickets with transcripts
+- XP, ranks, leaderboards, badges, and Starboard highlights
+- Searchable audit history and TL;DR summaries
+
+---
+
 ## Decision Jar 🫙
 
-**Tagline:** Stop overthinking. Start deciding.
+**Tagline:** Stop overthinking. Start shaking.
 
 **What it does:** Decision-making app that helps people break through analysis paralysis. Shake the jar to randomly pick an option. You can create your own jars with your own options or have AI generate options for you.
 
@@ -36,23 +64,23 @@ Software development company based in New Jersey.
 | Platform | URL                                                                  |
 | -------- | -------------------------------------------------------------------- |
 | Website  | https://decisionjar.app                                              |
-| Web App  | https://app.decisionjar.app                                          |
 | Android  | https://play.google.com/store/apps/details?id=com.volvox.decisionjar |
 | iOS      | https://apps.apple.com/us/app/decision-jar-choice-maker/id6756397435 |
 
 ### Pricing
 
-| Plan    | Price            |
-| ------- | ---------------- |
-| Free    | Limited features |
-| Monthly | $2.99            |
-| Yearly  | $14.99           |
+US storefront snapshot, verified July 19, 2026. Prices may vary by region.
+
+| Store       | Free tier                 | Monthly | Yearly | Lifetime |
+| ----------- | ------------------------- | ------- | ------ | -------- |
+| Apple       | 3 jars, 5 options per jar | $2.99   | $14.99 | —        |
+| Google Play | 3 jars, 5 options per jar | $0.99   | $6.99  | $14.99   |
 
 ### Key Features
 
 - Custom jars with your own options
 - Shake-to-pick with animations
-- AI-powered suggestions (you don't have to use them)
+- AI-powered suggestions (3/day free, up to 50/day on Premium)
 - Gamification (streaks, achievements)
 - Share jars via QR codes/links
 - Offline support
@@ -66,8 +94,9 @@ Overthinkers, indecisive people, anyone who's spent 20 minutes deciding where to
 
 ## Sobers 🌱
 
-**Tagline:** Your support system, one tap away.  
-**Alt tagline:** Think Jira for your sobriety.
+**Tagline:** Track the journey, not just the days.
+
+**Alt tagline:** Accountability, redefined.
 
 **What it does:** Recovery accountability app connecting sponsors with sponsees and tracking sobriety milestones.
 
@@ -77,7 +106,7 @@ Overthinkers, indecisive people, anyone who's spent 20 minutes deciding where to
 | -------- | --------------------------------------------------------------- |
 | Website  | https://sobers.app                                              |
 | Web App  | https://app.sobers.app                                          |
-| iOS      | https://apps.apple.com/app/id6755614815                         |
+| iOS      | https://apps.apple.com/us/app/sobers-recovery-companion/id6755614815 |
 | Android  | https://play.google.com/store/apps/details?id=com.volvox.sobers |
 
 ### Key Features
@@ -88,6 +117,11 @@ Overthinkers, indecisive people, anyone who's spent 20 minutes deciding where to
 - Task management
 - 12-step content with steps, daily reflections, prayers, and meeting log
 - Expense tracking (see how much you've saved)
+- Secure partner messaging and cross-platform sync
+
+### Pricing
+
+Free forever, with no ads, premium tiers, or paywalls.
 
 ### Program Tab (12-Step Support):
 

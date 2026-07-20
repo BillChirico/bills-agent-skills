@@ -10,6 +10,18 @@ Custom skills for AI coding agents that automate common workflows.
 npx skills add BillChirico/bills-agent-skills
 ```
 
+This discovers all six skills in the repository.
+
+### Claude Code marketplace
+
+```bash
+claude plugin marketplace add BillChirico/bills-agent-skills
+claude plugin install github-pr-resolver@bills-agent-skills
+claude plugin install wow-route-generator@bills-agent-skills
+```
+
+The marketplace currently publishes the GitHub PR Resolver and WoW Route Generator plugins. Use the Skills CLI above for the full collection.
+
 ### Source
 
 Clone the repo and copy any skill folder to your agent's skills directory:
@@ -43,7 +55,7 @@ Formats copy-paste-ready Discord messages, embeds, templates, and bot responses.
 
 ### GitHub PR Resolver
 
-Resolves all PR review comments and ensures CI passes.
+Drives actionable PR feedback to resolution and verifies required checks.
 
 ```text
 /resolve-pr https://github.com/owner/repo/pull/123
@@ -52,12 +64,12 @@ Resolves all PR review comments and ensures CI passes.
 **What it does:**
 
 - Fetches all review threads (paginated)
-- Creates todo list with author names and comment links
-- Fixes issues in parallel (groups by file)
+- Tracks every actionable thread with author names and comment links
+- Groups related comments by root cause and parallelizes only independent file scopes
 - Commits and pushes fixes before resolving each thread
 - Verifies resolution succeeded
 - Waits for CI to pass, fixes failures if needed
-- Final verification: zero unresolved + all CI green
+- Final verification: zero unresolved actionable feedback and all required checks green
 
 [View documentation](github-pr-resolver/README.md)
 
@@ -68,6 +80,14 @@ Resolves all PR review comments and ensures CI passes.
 Maintains GitHub PRs end-to-end: review comments, requested changes, merge conflicts, and CI failures.
 
 [View documentation](manage-prs/README.md)
+
+---
+
+### WoW Route Generator
+
+Generates coordinate-accurate World of Warcraft gathering-route maps from LootRoute JSON, Lua node data, verified zone bounds, and Wowhead object locations.
+
+[View documentation](wow-route-generator/README.md)
 
 ---
 
@@ -82,7 +102,8 @@ Applies Volvox LLC's official brand identity, colors, typography, and voice.
 ## Prerequisites
 
 - An AI coding agent (for example, GitHub Copilot)
-- [GitHub CLI](https://cli.github.com/) with `repo` scope for `github-pr-resolver` and `manage-prs`
+- [GitHub CLI](https://cli.github.com/) authenticated for the target repository for `github-pr-resolver` and `manage-prs`
+- Node.js 18 or newer for `wow-route-generator`
 - Python 3 and Pillow for `app-store-image-enhancer`
 
 ## License

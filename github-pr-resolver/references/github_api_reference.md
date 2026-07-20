@@ -36,7 +36,7 @@ gh pr view <PR> --json number,title,state,headRefName,baseRefName,author,url
 
 # Check status
 gh pr checks <PR>
-gh pr checks <PR> --json name,state,conclusion
+gh pr checks <PR> --json name,state,bucket,link
 
 # PR diff
 gh pr diff <PR>
@@ -81,16 +81,16 @@ while true; do
     }
   }' -f owner=OWNER -f repo=REPO -F pr=NUMBER ${CURSOR:+-f cursor=$CURSOR})
 
-  PAGE=$(echo $RESULT | jq '.data.repository.pullRequest.reviewThreads.nodes')
-  ALL_THREADS=$(echo "$ALL_THREADS $PAGE" | jq -s 'add')
+  PAGE=$(printf '%s\n' "$RESULT" | jq '.data.repository.pullRequest.reviewThreads.nodes')
+  ALL_THREADS=$(jq -cn --argjson all "$ALL_THREADS" --argjson page "$PAGE" '$all + $page')
 
-  HAS_NEXT=$(echo $RESULT | jq -r '.data.repository.pullRequest.reviewThreads.pageInfo.hasNextPage')
+  HAS_NEXT=$(printf '%s\n' "$RESULT" | jq -r '.data.repository.pullRequest.reviewThreads.pageInfo.hasNextPage')
   [ "$HAS_NEXT" != "true" ] && break
-  CURSOR=$(echo $RESULT | jq -r '.data.repository.pullRequest.reviewThreads.pageInfo.endCursor')
+  CURSOR=$(printf '%s\n' "$RESULT" | jq -r '.data.repository.pullRequest.reviewThreads.pageInfo.endCursor')
 done
 
-echo "Total: $(echo $ALL_THREADS | jq 'length')"
-echo "Unresolved: $(echo $ALL_THREADS | jq '[.[] | select(.isResolved == false)] | length')"
+echo "Total: $(printf '%s\n' "$ALL_THREADS" | jq 'length')"
+echo "Unresolved: $(printf '%s\n' "$ALL_THREADS" | jq '[.[] | select(.isResolved == false)] | length')"
 ```
 
 ## Error Handling
@@ -104,7 +104,12 @@ echo "Unresolved: $(echo $ALL_THREADS | jq '[.[] | select(.isResolved == false)]
 
 ### Token Permissions
 
-Required scopes: `repo`, `write:discussion`
+Authentication depends on token type:
+
+- Classic personal access token: `repo` for private repositories
+- Fine-grained personal access token: access to the target repository with **Pull requests: Read and write**
+
+No Discussions permission is required for pull request review threads.
 
 ```bash
 gh auth status

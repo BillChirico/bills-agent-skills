@@ -11,7 +11,7 @@ Treat GitHub as the source of truth. Do not rely on stale browser state, old sum
 
 Only mark review threads resolved after:
 
-1. The related code/doc/test fix is committed.
+1. The related fix is committed.
 2. The branch is pushed.
 3. The live PR state is re-read and the fixed thread IDs are still the threads being resolved.
 
@@ -59,10 +59,9 @@ python3 "<skill-dir>/scripts/resolve_review_threads.py" --repo "." --thread-id "
    - Separate actionable requests from stale, duplicate, or already-addressed comments.
    - Do not resolve a stale-looking thread until live code proves it is obsolete and the branch has been pushed.
 
-5. Fix with tests.
+5. Fix and verify.
    - Reproduce failing CI locally when feasible.
-   - Add or update focused tests for review-comment fixes that affect behavior.
-   - Run the narrowest meaningful verification first, then broader gates when the PR touches shared code.
+   - Run the narrowest meaningful existing verification first, then broader repository-prescribed gates when the PR touches shared code.
    - Do not weaken lint, typecheck, tests, snapshots, coverage, security checks, or required workflows to get green.
 
 6. Commit and push.

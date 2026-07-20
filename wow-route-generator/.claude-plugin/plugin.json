@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "wow-route-generator",
+  "displayName": "WoW Route Generator",
+  "version": "0.3.3",
+  "description": "Generate coordinate-accurate World of Warcraft gathering-route maps from LootRoute JSON and Wowhead object data.",
+  "author": {
+    "name": "BillChirico"
+  },
+  "homepage": "https://github.com/BillChirico/bills-agent-skills/tree/main/wow-route-generator",
+  "repository": "https://github.com/BillChirico/bills-agent-skills",
+  "license": "MIT",
+  "keywords": ["world-of-warcraft", "wow", "lootroute", "route", "map", "visualization"]
+}

@@ -1,6 +1,6 @@
 ---
 name: app-store-image-enhancer
-description: Enhances image resolution, sharpness, and clarity using Python/Pillow. Perfect for app store icons (1024x1024), screenshots, and social media images.
+description: Enhance image resolution, sharpness, and clarity with Python and Pillow. Use for iOS marketing icons, Google Play icons, screenshots, social media images, upscaling, or sharpening while preserving the original file.
 ---
 
 # App Store Image Enhancer
@@ -9,7 +9,8 @@ Enhance images to be sharper, clearer, and more professional using Python's Pill
 
 ## When to Use This Skill
 
-- Preparing app icons for App Store/Google Play (must be 1024x1024 PNG)
+- Preparing iOS App Store marketing icons (1024×1024 PNG, no alpha)
+- Preparing Google Play store icons (512×512 32-bit PNG with alpha)
 - Improving screenshot quality for documentation or marketing
 - Enhancing images for social media posts
 - Upscaling low-resolution images
@@ -21,7 +22,9 @@ Enhance images to be sharper, clearer, and more professional using Python's Pill
 ### Required Setup
 
 ```bash
-pip install Pillow --break-system-packages
+python3 -m venv .venv
+source .venv/bin/activate
+python3 -m pip install Pillow
 ```
 
 ### Core Enhancement Script
@@ -52,9 +55,15 @@ def enhance_image(
     Returns:
         Path to the enhanced image
     """
-    # Open and convert to RGBA for transparency support
+    if mode not in {"app-icon", "screenshot", "general"}:
+        raise ValueError(f"Unsupported mode: {mode}")
+    if not os.path.isfile(input_path):
+        raise FileNotFoundError(f"Image not found: {input_path}")
+    if target_size and any(dimension <= 0 for dimension in target_size):
+        raise ValueError("target_size dimensions must be positive")
+
+    # Open and convert to RGBA while processing.
     img = Image.open(input_path)
-    original_mode = img.mode
 
     if img.mode != 'RGBA':
         img = img.convert('RGBA')
@@ -88,8 +97,14 @@ def enhance_image(
         base, ext = os.path.splitext(input_path)
         output_path = f"{base}-enhanced.png"
 
-    # Save as PNG for quality (convert to RGB if no transparency needed)
-    if mode == "app-icon" or output_path.lower().endswith('.png'):
+    # Apple's marketing icon must be opaque. Flatten transparency before saving.
+    if mode == "app-icon":
+        background = Image.new('RGB', img.size, (255, 255, 255))
+        background.paste(img, mask=img.getchannel('A'))
+        img = background
+
+    # Save as PNG for quality; flatten alpha for JPG output.
+    if output_path.lower().endswith('.png'):
         img.save(output_path, 'PNG', optimize=True)
     else:
         # For JPG output, convert to RGB
@@ -114,6 +129,10 @@ def analyze_image(input_path: str) -> dict:
     """
     img = Image.open(input_path)
 
+    has_transparency = img.mode in ('RGBA', 'LA') or (
+        img.mode == 'P' and 'transparency' in img.info
+    )
+
     return {
         "path": input_path,
         "format": img.format,
@@ -122,9 +141,13 @@ def analyze_image(input_path: str) -> dict:
         "width": img.size[0],
         "height": img.size[1],
         "is_square": img.size[0] == img.size[1],
-        "has_transparency": img.mode in ('RGBA', 'LA', 'P'),
+        "has_transparency": has_transparency,
         "file_size_kb": os.path.getsize(input_path) / 1024,
-        "meets_app_icon_spec": img.size[0] >= 1024 and img.size[1] >= 1024
+        "meets_ios_marketing_icon_spec": (
+            img.size == (1024, 1024)
+            and img.format == 'PNG'
+            and not has_transparency
+        )
     }
 
 
@@ -206,25 +229,28 @@ print(f"Enhanced {len(enhanced_files)} images")
 | Platform        | Size      | Format | Notes                                               |
 | --------------- | --------- | ------ | --------------------------------------------------- |
 | iOS App Store   | 1024×1024 | PNG    | No transparency, no rounded corners (iOS adds them) |
-| Google Play     | 512×512   | PNG    | Can have transparency                               |
+| Google Play     | 512×512   | PNG    | 32-bit PNG with alpha, maximum 1,024 KB             |
 | macOS App Store | 1024×1024 | PNG    | Can have transparency                               |
 
 **Important**: iOS App Store icons should NOT have transparency—use a solid background. The system applies the rounded corners automatically.
 
 ## Output Specifications
 
-When `mode="app-icon"`:
+When `mode="app-icon"` (the iOS marketing-icon preset):
 
 - Size: 1024×1024 pixels
 - Format: PNG
 - Sharpness: Enhanced (1.8x)
 - Contrast: Slightly boosted (1.15x)
 - Optimized file size
+- Alpha flattened onto an opaque white background
 
 ## Tips
 
 - Always preserve originals (the script creates new files by default)
-- Use `mode="app-icon"` for store submissions
+- Use `mode="app-icon"` for the iOS marketing icon; set `target_size=(512, 512)` separately for Google Play
 - Use `mode="screenshot"` for documentation images
 - For social media, consider platform-specific sizes after enhancement
 - JPG output is supported but PNG is preferred for icons
+
+Current source specifications: [Apple app icon help](https://developer.apple.com/help/app-store-connect/manage-app-information/add-an-app-icon), [Apple screenshot specifications](https://developer.apple.com/help/app-store-connect/reference/app-information/screenshot-specifications/), and [Google Play preview asset requirements](https://support.google.com/googleplay/android-developer/answer/9866151).

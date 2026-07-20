@@ -2,7 +2,7 @@
 
 Copy-paste starting points for the most common Discord message types. Replace the bracketed placeholders with real content.
 
-These are skeletons, not finished copy. Before filling one in, apply the judgment from `SKILL.md`: confirm whether this is a regular user message or bot/webhook-authored (masked links only render in the latter, so every template below uses bare URLs), and calibrate emoji and bold to the message's tone rather than copying the skeleton mechanically. A celebratory community post can lean into more emoji; a moderation notice or incident report usually reads better leaner.
+These are skeletons, not finished copy. Before filling one in, apply the judgment from `SKILL.md`: confirm the delivery context so the correct character limit and payload shape are used, choose masked or bare links based on readability, and calibrate emoji and bold to the message's tone rather than copying the skeleton mechanically. A celebratory community post can lean into more emoji; a moderation notice or incident report usually reads better leaner.
 
 ## Announcements
 

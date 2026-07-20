@@ -1,6 +1,6 @@
 ---
 name: volvox-brand
-description: Apply Volvox LLC's official brand identity, colors, typography, and voice to artifacts. Use when creating Volvox-branded content including websites, landing pages, presentations, social media posts, marketing materials, UI components, or any output requiring Volvox's visual identity and tone. Triggers on requests involving Volvox branding, Decision Jar, Sobers, or Volvox Community styling.
+description: Apply Volvox LLC's official brand identity, colors, typography, and voice to artifacts. Use when creating Volvox-branded content including websites, landing pages, presentations, social media posts, marketing materials, UI components, or any output requiring Volvox's visual identity and tone. Triggers on requests involving Volvox branding, Volvox.Bot, Decision Jar, Sobers, or Volvox Community styling.
 ---
 
 # Volvox Brand Guidelines
@@ -63,6 +63,16 @@ Apply Volvox's brand identity to visual artifacts and written content.
 
 ## Product-Specific Tones
 
+### Volvox.Bot 🤖
+
+**Tone:** Technical, direct, and confident. Speak to Discord operators who want one reliable system, not a pile of weekend-project bots. Keep the cyber aesthetic readable and skip fake enterprise grandeur.
+
+Examples:
+
+- "AI for Discord communities."
+- "Your community, re-engineered."
+- "One bot. One dashboard. No server babysitting."
+
 ### Decision Jar 🫙
 
 **Tone:** Playful, lighthearted, self-aware humor about indecision, but also humorous.
@@ -83,7 +93,7 @@ Examples:
 - "Your journey. Your people. Your pace."
 - "Built for the hard days and the good ones."
 - "Connection is the opposite of addiction. Stay connected."
-- "Think Jira for your sobriety.
+- "Think Jira for your sobriety."
 - "Your support system, one tap away."
 
 **Critical:** Never make light of addiction or recovery.
